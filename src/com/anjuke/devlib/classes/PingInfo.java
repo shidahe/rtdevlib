@@ -1,4 +1,4 @@
-package com.anjuke.devlib.base.classes;
+package com.anjuke.devlib.classes;
 
 public class PingInfo {
 	public int byteCount;

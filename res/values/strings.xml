@@ -1,5 +1,11 @@
 <resources>
 
-    <string name="app_name">rtdevlib</string>
+    <string name="exception_not_margin_layout_param">LayoutParams is not a MarginLayoutParams</string>
+    <string name="exception_not_exactly_mode">ScrollLayout only can run at EXACTLY mode</string>
+    <string name="list_loading">Loading...</string>
+    <string name="list_updated">Updated: </string>
+    <string name="list_more">Load More</string>
+    <string name="list_pull_refresh">Pull down for refreshing</string>
+    <string name="list_release_refresh">Release for refreshing</string>
 
 </resources>

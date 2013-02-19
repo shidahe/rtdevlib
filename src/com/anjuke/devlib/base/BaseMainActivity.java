@@ -11,24 +11,26 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
+import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.utils.NetworkUtils;
 import com.anjuke.devlib.utils.PingUtils;
 
-public abstract class BaseMainActivity extends Activity {
+public abstract class BaseMainActivity extends Activity implements IFragments {
 
-	private static boolean oneTimeRun = false;
-	MenuItem actionItem;
+	protected static boolean oneTimeRun = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+		super.onCreate(savedInstanceState);
 		registerReceiver(receiverHome, filterHome);
+
+		loadFragments();
 
 		if (!oneTimeRun) {
 			oneTimeRun = true;
@@ -46,6 +48,7 @@ public abstract class BaseMainActivity extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			releaseFragments();
 			oneTimeRun = false;
 		}
 		return super.onKeyDown(keyCode, event);
@@ -58,13 +61,15 @@ public abstract class BaseMainActivity extends Activity {
 
 	public abstract void initOnce();
 
+	public abstract String getBarTitle();
+
 	private void loadUI() {
 		setContentView(R.layout.layout_main);
 		replaceIndexFragment();
 		View vDetail = findViewById(R.id.fragmentDetail);
 		GlobalInstance.dualPane = vDetail != null
 				&& vDetail.getVisibility() == View.VISIBLE;
-		getActionBar().setTitle(R.string.app_name);
+		getActionBar().setTitle(getBarTitle());
 		setDualPane();
 	}
 

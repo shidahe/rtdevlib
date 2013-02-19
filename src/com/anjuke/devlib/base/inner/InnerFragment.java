@@ -1,4 +1,4 @@
-package com.anjuke.devlib.base;
+package com.anjuke.devlib.base.inner;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,12 +9,12 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
 
 public abstract class InnerFragment extends Fragment {
 
 	protected View innerView = null;
+	protected Bundle innerBundle = null;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -39,6 +39,7 @@ public abstract class InnerFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		innerBundle = getArguments();
 		initLogic();
 	}
 
@@ -57,6 +58,13 @@ public abstract class InnerFragment extends Fragment {
 	protected abstract String getMainActivityName();
 
 	protected abstract void initMenu(Menu menu);
+	
+	protected abstract void onGetNewArguments(Bundle bn);
+	
+	public void setNewArguments(Bundle bn) {
+		innerBundle = getArguments();
+		onGetNewArguments(bn);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +74,7 @@ public abstract class InnerFragment extends Fragment {
 
 	@Override
 	public void onPause() {
-		getActivity().setTitle(R.string.app_name);
+		getActivity().setTitle(getBarTitle());
 		super.onPause();
 	}
 

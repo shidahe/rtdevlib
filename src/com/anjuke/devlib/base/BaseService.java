@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.util.Log;
 
 import com.anjuke.devlib.common.Actions;
 import com.anjuke.devlib.utils.NotificationUtils;
@@ -122,12 +121,6 @@ public abstract class BaseService extends Service {
 			}
 		}
 		return super.onStartCommand(intent, flags, startId);
-	}
-
-	@Override
-	public void onDestroy() {
-		Log.e(getClass().getName(), "onDestroy");
-		super.onDestroy();
 	}
 
 }

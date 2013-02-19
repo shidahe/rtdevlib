@@ -1,4 +1,4 @@
-package com.anjuke.devlib.base;
+package com.anjuke.devlib.base.inner;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -26,9 +26,11 @@ public abstract class InnerActivity extends Activity {
 		setContentView(getBaseLayout());
 
 		bar = getActionBar();
-		bar.setIcon(R.drawable.ic_launcher);
-		bar.setDisplayOptions(0, ActionBar.DISPLAY_HOME_AS_UP);
-		bar.setDisplayHomeAsUpEnabled(true);
+		if (bar != null) {
+			bar.setIcon(R.drawable.ic_launcher);
+			bar.setDisplayOptions(0, ActionBar.DISPLAY_HOME_AS_UP);
+			bar.setDisplayHomeAsUpEnabled(true);
+		}
 		replace();
 	}
 

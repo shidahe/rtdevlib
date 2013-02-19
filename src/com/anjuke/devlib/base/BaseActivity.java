@@ -3,6 +3,7 @@ package com.anjuke.devlib.base;
 import android.content.res.Configuration;
 
 import com.anjuke.devlib.R;
+import com.anjuke.devlib.base.inner.InnerActivity;
 
 public abstract class BaseActivity extends InnerActivity {
 

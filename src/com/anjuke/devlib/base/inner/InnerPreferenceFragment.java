@@ -1,4 +1,4 @@
-package com.anjuke.devlib.base;
+package com.anjuke.devlib.base.inner;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,11 +6,10 @@ import android.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
 
 public abstract class InnerPreferenceFragment extends PreferenceFragment {
-
+	
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -42,16 +41,19 @@ public abstract class InnerPreferenceFragment extends PreferenceFragment {
 	protected abstract void initMenu(Menu menu);
 	
 	protected abstract String getMainActivityName();
+	
+	protected abstract int getPreferenceLayoutId();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
+		addPreferencesFromResource(getPreferenceLayoutId());
 	}
 
 	@Override
 	public void onPause() {
-		getActivity().setTitle(R.string.app_name);
+		getActivity().setTitle(getBarTitle());
 		super.onPause();
 	}
 

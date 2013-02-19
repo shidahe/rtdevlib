@@ -7,10 +7,16 @@ import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.GridView;
+import android.widget.ListView;
+
+import com.anjuke.devlib.R;
 
 public class UIUtils {
 
+	private static Context context = null;
 	private static DisplayMetrics dm = null;
 
 	public static DisplayMetrics getDM() {
@@ -21,33 +27,24 @@ public class UIUtils {
 		return dm.density;
 	}
 
-	public static void initDisplayMetrics(WindowManager wm) {
+	public static void initDisplayMetrics(Context ctx, WindowManager wm) {
+		if (context == null) {
+			context = ctx;
+		}
 		if (dm == null) {
 			dm = new DisplayMetrics();
 			wm.getDefaultDisplay().getMetrics(dm);
 		}
 	}
 
-	public static boolean touchInView(View v, MotionEvent e) {
-		return false;
-	}
-
 	public static boolean touchInDialog(Activity activity, MotionEvent e) {
-		// WindowManager.LayoutParams wlp =
-		// activity.getWindow().getAttributes();
 		int leftW, rightW, topH, bottomH;
 
-		// if (wlp.width > 0 && wlp.height > 0) {
-		// leftW = (dm.widthPixels - wlp.width) / 2;
-		// rightW = dm.widthPixels - leftW;
-		// topH = (dm.heightPixels - wlp.height) / 2;
-		// bottomH = dm.heightPixels - topH;
-		// } else {
-		leftW = 8; // (dm.widthPixels - 16) / 2;
+		leftW = 8;
 		rightW = dm.widthPixels - leftW;
-		topH = 0; // (dm.heightPixels - 80) / 2;
+		topH = 0;
 		bottomH = 450;
-		// }
+
 		return ((e.getX() > leftW) && (e.getX() < rightW) && (e.getY() > topH) && (e
 				.getY() < bottomH));
 	}
@@ -145,4 +142,91 @@ public class UIUtils {
 		return dm.heightPixels;
 	}
 
+	public static void setViewSizeX(View v, int size) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.width = size;
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewSizeY(View v, int size) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.height = size;
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewPercentX(View v, float percent) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.width = (int) (getWidth() * percent / 100);
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewPercentY(View v, float percent) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.height = (int) (getHeight() * percent / 100);
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewMarginPercent(View v, float marginLeft,
+			float marginTop, float marginRight, float marginBottom)
+			throws Exception {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		if (lp instanceof ViewGroup.MarginLayoutParams) {
+			ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) lp;
+			mlp.leftMargin = (int) (getWidth() * marginLeft / 100);
+			mlp.topMargin = (int) (getHeight() * marginTop / 100);
+			mlp.rightMargin = (int) (getWidth() * marginRight / 100);
+			mlp.bottomMargin = (int) (getHeight() * marginBottom / 100);
+			v.setLayoutParams(mlp);
+		} else {
+			throw new Exception(
+					context.getString(R.string.exception_not_margin_layout_param));
+		}
+	}
+
+	public static void setViewMarginSize(View v, int marginLeft, int marginTop,
+			int marginRight, int marginBottom) throws Exception {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		if (lp instanceof ViewGroup.MarginLayoutParams) {
+			ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) lp;
+			mlp.leftMargin = marginLeft;
+			mlp.topMargin = marginTop;
+			mlp.rightMargin = marginRight;
+			mlp.bottomMargin = marginBottom;
+			v.setLayoutParams(mlp);
+		} else {
+			throw new Exception(
+					context.getString(R.string.exception_not_margin_layout_param));
+		}
+	}
+
+	public static void setViewPaddingPercent(View v, float paddingLeft,
+			float paddingTop, float paddingRight, float paddingBottom) {
+		int pLeft = (int) (getWidth() * paddingLeft / 100);
+		int pTop = (int) (getHeight() * paddingTop / 100);
+		int pRight = (int) (getWidth() * paddingRight / 100);
+		int pBottom = (int) (getHeight() * paddingBottom / 100);
+		v.setPadding(pLeft, pTop, pRight, pBottom);
+	}
+	
+	public static void makeListViewFullSize(ListView lv, int itemHeight) {
+		int itemCount = lv.getAdapter().getCount();
+		int divider = lv.getDividerHeight();
+		int height = (itemHeight + divider) * itemCount;
+		ViewGroup.LayoutParams lp = lv.getLayoutParams();
+		lp.height = height;
+		lv.setLayoutParams(lp);
+	}
+	
+	public static void makeGridViewFullSize(GridView gv, int itemHeight) {
+		int itemCount = gv.getAdapter().getCount();
+		int columns = gv.getNumColumns();
+		int lines = (int) (itemCount / columns);
+		if (itemCount % columns != 0) {
+			lines++;
+		}
+		ViewGroup.LayoutParams lp = gv.getLayoutParams();
+		lp.height = lines * itemHeight;
+		gv.setLayoutParams(lp);
+		
+	}
 }

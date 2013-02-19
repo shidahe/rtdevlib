@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 import android.content.Context;
 
-import com.anjuke.devlib.base.classes.PingInfo;
+import com.anjuke.devlib.classes.PingInfo;
 import com.anjuke.devlib.utils.command.CommandResult;
 import com.anjuke.devlib.utils.command.RootUtils;
 

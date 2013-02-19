@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import com.anjuke.devlib.R;
+import com.anjuke.devlib.base.inner.InnerActivity;
 
 public abstract class BasePopupActivity extends InnerActivity {
 

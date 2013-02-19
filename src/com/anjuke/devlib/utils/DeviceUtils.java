@@ -8,7 +8,7 @@ import android.content.pm.PackageInfo;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
-import com.anjuke.devlib.base.classes.DeviceInfo;
+import com.anjuke.devlib.classes.DeviceInfo;
 import com.anjuke.devlib.common.GlobalInstance;
 
 public class DeviceUtils {
