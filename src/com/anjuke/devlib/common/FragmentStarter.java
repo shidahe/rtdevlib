@@ -10,7 +10,7 @@ import com.anjuke.devlib.R;
 
 public class FragmentStarter {
 
-	public static void showContent(Activity activity, Intent inContent,
+	public static void showContent(Activity activity, Class<?> clz,
 			Fragment fContent) {
 		if (GlobalInstance.dualPane) {
 			FragmentManager fragmentManager = activity.getFragmentManager();
@@ -21,7 +21,7 @@ public class FragmentStarter {
 					.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 			fragmentTransaction.commit();
 		} else {
-			activity.startActivity(inContent);
+			activity.startActivity(new Intent(activity, clz));
 		}
 	}
 }

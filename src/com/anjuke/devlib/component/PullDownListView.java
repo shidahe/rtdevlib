@@ -23,7 +23,7 @@ import com.anjuke.devlib.common.Actions;
 import com.anjuke.devlib.component.event.OnPullDownListener;
 import com.anjuke.devlib.component.event.OnScrollOverListener;
 
-public class PullDownView extends LinearLayout implements OnScrollOverListener {
+public class PullDownListView extends LinearLayout implements OnScrollOverListener {
 
 	private static final int START_PULL_DEVIATION = 50;
 	private static final int AUTO_INCREMENTAL = 10;
@@ -64,12 +64,12 @@ public class PullDownView extends LinearLayout implements OnScrollOverListener {
 	private static final int HEADER_VIEW_STATE_OVER_HEIGHT = 2;
 	private int mHeaderViewState = HEADER_VIEW_STATE_IDLE;
 
-	public PullDownView(Context context, AttributeSet attrs) {
+	public PullDownListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		initHeaderViewAndFooterViewAndListView(context);
 	}
 
-	public PullDownView(Context context) {
+	public PullDownListView(Context context) {
 		super(context);
 		initHeaderViewAndFooterViewAndListView(context);
 	}
