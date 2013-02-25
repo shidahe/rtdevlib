@@ -5,11 +5,11 @@ import android.app.Fragment;
 import com.anjuke.devlib.base.BaseActivity;
 import com.rarnu.devlib.demo.Fragments;
 
-public class DetailActivity extends BaseActivity {
+public class AdapterActivity extends BaseActivity {
 
 	@Override
 	public Fragment replaceFragment() {
-		return Fragments.fDetail;
+		return Fragments.fAdapter;
 	}
 
 }

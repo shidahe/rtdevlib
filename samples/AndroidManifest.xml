@@ -25,8 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment.activity.DetailActivity"
-            android:label="@string/detail_name" >
+            android:name=".fragment.activity.ArgumentActivity"
+            android:label="@string/argument_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.AdapterActivity"
+            android:label="@string/adapter_name" >
         </activity>
     </application>
 

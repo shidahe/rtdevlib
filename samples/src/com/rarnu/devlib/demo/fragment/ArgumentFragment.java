@@ -2,6 +2,7 @@ package com.rarnu.devlib.demo.fragment;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,19 +13,20 @@ import com.anjuke.devlib.base.BaseFragment;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
 
-public class DetailFragment extends BaseFragment implements OnClickListener {
+public class ArgumentFragment extends BaseFragment implements OnClickListener {
 
 	TextView tvFragmentId;
 	Button btnShowId;
+	MenuItem itemAction;
 
 	@Override
 	protected int getBarTitle() {
-		return R.string.detail_name;
+		return R.string.argument_name;
 	}
 
 	@Override
 	protected int getBarTitleWithPath() {
-		return R.string.detail_name_with_path;
+		return R.string.argument_name_with_path;
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class DetailFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	protected int getFragmentLayoutResId() {
-		return R.layout.fragment;
+		return R.layout.fragment_argument;
 	}
 
 	@Override
@@ -59,7 +61,20 @@ public class DetailFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	protected void initMenu(Menu menu) {
+		itemAction = menu.add(0, 2, 99, "Action");
+		itemAction.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+		itemAction.setIcon(android.R.drawable.ic_menu_help);
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 2:
+			Toast.makeText(getActivity(), tvFragmentId.getText().toString(),
+					Toast.LENGTH_SHORT).show();
+			break;
+		}
+		return true;
 	}
 
 	@Override
