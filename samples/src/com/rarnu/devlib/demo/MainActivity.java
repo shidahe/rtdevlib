@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.widget.ShareActionProvider;
 
 import com.anjuke.devlib.base.BaseMainActivity;
+import com.anjuke.devlib.common.GlobalInstance;
+import com.anjuke.devlib.utils.UIUtils;
 
 public class MainActivity extends BaseMainActivity {
 
@@ -15,6 +17,8 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		GlobalInstance.init(this, true);
+		UIUtils.initDisplayMetrics(this, getWindowManager());
 		super.onCreate(savedInstanceState);
 	}
 
@@ -47,7 +51,7 @@ public class MainActivity extends BaseMainActivity {
 	@Override
 	public void initMenu(Menu menu) {
 		itemShare = menu.add(0, 1, 0, "Share");
-		itemShare.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		itemShare.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		itemShare.setIcon(android.R.drawable.ic_menu_share);
 		ShareActionProvider actionProvider = new ShareActionProvider(this);
 		itemShare.setActionProvider(actionProvider);

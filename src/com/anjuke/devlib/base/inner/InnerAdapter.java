@@ -123,7 +123,7 @@ public abstract class InnerAdapter<T> extends BaseAdapter implements Filterable 
 	}
 
 	public abstract String getValueText(T item);
-	
+
 	public void filter(String text) {
 		getFilter().filter(text);
 	}

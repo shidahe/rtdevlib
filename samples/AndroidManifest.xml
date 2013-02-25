@@ -4,6 +4,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -32,6 +36,23 @@
             android:name=".fragment.activity.AdapterActivity"
             android:label="@string/adapter_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.DialogActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.PopupActivity"
+            android:label="@string/adapter_name" >
+        </activity>
+
+        <service android:name=".service.DemoService" >
+        </service>
+
+        <receiver android:name=".receiver.NotifyReceiver" >
+            <intent-filter>
+                <action android:name="anjuke.action.notify" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

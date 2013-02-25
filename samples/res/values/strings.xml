@@ -6,6 +6,8 @@
     <string name="argument_name_with_path">MainActivity &gt; ArgumentFragment</string>
     <string name="adapter_name">AdapterFragment</string>
     <string name="adapter_name_with_path">MainActivity &gt; AdapterFragment</string>
+    <string name="popup_name">PopupFragment</string>
+    <string name="service_name">Service</string>
     
     <string name="test_cat_1">Fragment</string>
     <string name="test_cat_2">Base.Impl</string>
@@ -21,7 +23,7 @@
     <string name="item_2_2">Dialog</string>
     <string name="item_2_3">Popup</string>
     <string name="item_2_4">Loader</string>
-    <string name="item_2_5">Service</string>
+    <string name="item_2_5">Service &amp; Mutax</string>
     
     <string name="item_3_1">HScrollLayout</string>
     <string name="item_3_2">VScrollLayout</string>
@@ -41,4 +43,9 @@
     <string name="item_5_1">Run</string>
     
     <string name="btn_show_id">Show ID</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_1">Button 1</string>
+    <string name="btn_2">Button 2</string>
+    <string name="service_detail">Detail Information</string>
+    <string name="service_finished">Service finished</string>
 </resources>

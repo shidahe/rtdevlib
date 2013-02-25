@@ -142,6 +142,30 @@ public class UIUtils {
 		return dm.heightPixels;
 	}
 
+	public static void setActivitySizeX(Activity a, int size) {
+		WindowManager.LayoutParams lp = a.getWindow().getAttributes();
+		lp.width = size;
+		a.getWindow().setAttributes(lp);
+	}
+
+	public static void setActivitySizeY(Activity a, int size) {
+		WindowManager.LayoutParams lp = a.getWindow().getAttributes();
+		lp.height = size;
+		a.getWindow().setAttributes(lp);
+	}
+
+	public static void setActivityPercentX(Activity a, float percent) {
+		WindowManager.LayoutParams lp = a.getWindow().getAttributes();
+		lp.width = (int) (getWidth() * percent / 100);
+		a.getWindow().setAttributes(lp);
+	}
+
+	public static void setActivityPercentY(Activity a, float percent) {
+		WindowManager.LayoutParams lp = a.getWindow().getAttributes();
+		lp.height = (int) (getHeight() * percent / 100);
+		a.getWindow().setAttributes(lp);
+	}
+
 	public static void setViewSizeX(View v, int size) {
 		ViewGroup.LayoutParams lp = v.getLayoutParams();
 		lp.width = size;
@@ -207,7 +231,7 @@ public class UIUtils {
 		int pBottom = (int) (getHeight() * paddingBottom / 100);
 		v.setPadding(pLeft, pTop, pRight, pBottom);
 	}
-	
+
 	public static void makeListViewFullSize(ListView lv, int itemHeight) {
 		int itemCount = lv.getAdapter().getCount();
 		int divider = lv.getDividerHeight();
@@ -216,7 +240,7 @@ public class UIUtils {
 		lp.height = height;
 		lv.setLayoutParams(lp);
 	}
-	
+
 	public static void makeGridViewFullSize(GridView gv, int itemHeight) {
 		int itemCount = gv.getAdapter().getCount();
 		int columns = gv.getNumColumns();
@@ -227,6 +251,6 @@ public class UIUtils {
 		ViewGroup.LayoutParams lp = gv.getLayoutParams();
 		lp.height = lines * itemHeight;
 		gv.setLayoutParams(lp);
-		
+
 	}
 }
