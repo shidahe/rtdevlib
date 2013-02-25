@@ -39,6 +39,14 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fDetail;
 		case 2:
 			return Fragments.fAdapter;
+		case 3:
+			return Fragments.fHScroll;
+		case 4:
+			return Fragments.fVScroll;
+		case 5:
+			return Fragments.fPullDownLayout;
+		case 6:
+			return Fragments.fPullDownListView;
 		}
 		return Fragments.fDetail;
 	}

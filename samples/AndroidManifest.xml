@@ -44,6 +44,22 @@
             android:name=".fragment.activity.PopupActivity"
             android:label="@string/adapter_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.HScrollActivity"
+            android:label="@string/scroll_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.VScrollActivity"
+            android:label="@string/scroll_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.PullDownListViewActivity"
+            android:label="@string/scroll_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.PullDownLayoutActivity"
+            android:label="@string/scroll_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>

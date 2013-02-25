@@ -24,12 +24,13 @@ public class PullDownLayout extends LinearLayout {
 	private static final int PULL_TO_REFRESH = 2;
 	private static final int RELEASE_TO_REFRESH = 3;
 	private static final int REFRESHING = 4;
+	public static final int WHAT_DID_REFRESH = 1;
 	public int mRefreshState;
 	public Scroller scroller;
 	public ScrollView sv;
 	private View refreshView;
 	private ImageView refreshIndicatorView;
-	private int refreshTargetTop = -50;
+	private int refreshTargetTop = -105;
 	private ProgressBar bar;
 	private TextView downTextView;
 

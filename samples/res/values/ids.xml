@@ -8,7 +8,6 @@
     <string name="id_item_2_2">Dialog</string>
     <string name="id_item_2_3">Popup</string>
     <string name="id_item_2_4">Loader</string>
-    <string name="id_item_2_5">Service</string>
     <string name="id_item_3_1">HScrollLayout</string>
     <string name="id_item_3_2">VScrollLayout</string>
     <string name="id_item_3_3">PullDownLayout</string>

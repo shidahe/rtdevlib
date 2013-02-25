@@ -28,11 +28,11 @@ public class PullDownListView extends LinearLayout implements OnScrollOverListen
 	private static final int START_PULL_DEVIATION = 50;
 	private static final int AUTO_INCREMENTAL = 10;
 
-	private static final int WHAT_DID_LOAD_DATA = 1;
-	private static final int WHAT_ON_REFRESH = 2;
-	private static final int WHAT_DID_REFRESH = 3;
-	private static final int WHAT_SET_HEADER_HEIGHT = 4;
-	private static final int WHAT_DID_MORE = 5;
+	public static final int WHAT_DID_LOAD_DATA = 1;
+	public static final int WHAT_ON_REFRESH = 2;
+	public static final int WHAT_DID_REFRESH = 3;
+	public static final int WHAT_SET_HEADER_HEIGHT = 4;
+	public static final int WHAT_DID_MORE = 5;
 
 	private static final int DEFAULT_HEADER_VIEW_HEIGHT = 105;
 

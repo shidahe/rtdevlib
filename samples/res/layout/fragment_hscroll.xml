@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.anjuke.devlib.component.HScrollLayout
+        android:id="@+id/hsl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFF0000" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF00FF00" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF0000FF" >
+        </RelativeLayout>
+    </com.anjuke.devlib.component.HScrollLayout>
+
+    <com.anjuke.devlib.component.PointBar
+        android:id="@+id/barPoint"
+        android:layout_width="match_parent"
+        android:layout_height="16dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dip" >
+    </com.anjuke.devlib.component.PointBar>
+
+</RelativeLayout>
