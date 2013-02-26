@@ -18,7 +18,6 @@ import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.utils.NetworkUtils;
-import com.anjuke.devlib.utils.PingUtils;
 
 public abstract class BaseMainActivity extends Activity implements IFragments {
 
@@ -116,7 +115,7 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 				GlobalInstance.loadingNetwork = true;
 				GlobalInstance.networkInfo = NetworkUtils
 						.getNetworkInfo(BaseMainActivity.this);
-				GlobalInstance.networkSpeed = PingUtils
+				GlobalInstance.networkSpeed = NetworkUtils
 						.testNetworkSpeed(BaseMainActivity.this);
 				GlobalInstance.loadingNetwork = false;
 			}

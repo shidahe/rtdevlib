@@ -47,6 +47,16 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fPullDownLayout;
 		case 6:
 			return Fragments.fPullDownListView;
+		case 7:
+			return Fragments.fDevice;
+		case 8:
+			return Fragments.fDownload;
+		case 9:
+			return Fragments.fFile;
+		case 10:
+			return Fragments.fHttpRequest;
+		case 11:
+			return Fragments.fImage;
 		}
 		return Fragments.fDetail;
 	}

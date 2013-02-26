@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="application_name">APIDemo</string>
     <string name="app_name">MainActivity</string>
     <string name="argument_name">ArgumentFragment</string>
     <string name="argument_name_with_path">MainActivity &gt; ArgumentFragment</string>
@@ -14,6 +14,16 @@
     <string name="pulldown_listview_name_with_path">MainActivity &gt; PullDownListViewFragment</string>
     <string name="pulldown_layout_name">PullDownLayoutFragment</string>
     <string name="pulldown_layout_name_with_path">MainActivity &gt; PullDownLayoutFragment</string>
+    <string name="device_name">DeviceFragment</string>
+    <string name="device_name_with_path">MainActivity &gt; DeviceFragment</string>
+    <string name="download_name">DownloadFragment</string>
+    <string name="download_name_with_path">MainActivity &gt; DownloadFragment</string>
+    <string name="file_name">FileFragment</string>
+    <string name="file_name_with_path">MainActivity &gt; FileFragment</string>
+    <string name="http_request_name">HttpRequestFragment</string>
+    <string name="http_request_name_with_path">MainActivity &gt; HttpRequestFragment</string>
+    <string name="image_name">ImageFragment</string>
+    <string name="image_name_with_path">MainActivity &gt; ImageFragment</string>
     
     <string name="test_cat_1">Fragment</string>
     <string name="test_cat_2">Base.Impl</string>
@@ -53,4 +63,15 @@
     <string name="btn_2">Button 2</string>
     <string name="service_detail">Detail Information</string>
     <string name="service_finished">Service finished</string>
+    <string name="btn_download">Download</string>
+    <string name="ok">OK</string>
+    <string name="btn_read">Read</string>
+    <string name="btn_write">Write</string>
+    <string name="btn_read_assets">Read Assets</string>
+    <string name="btn_http_request">Http Request</string>
+    <string name="btn_rotate">Rotate</string>
+    <string name="btn_flip">Flip</string>
+    <string name="btn_round">Round</string>
+    <string name="btn_black_white">B &amp; W</string>
+    <string name="btn_blur">Blur</string>
 </resources>

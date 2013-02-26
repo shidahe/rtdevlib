@@ -2,8 +2,13 @@ package com.rarnu.devlib.demo;
 
 import com.rarnu.devlib.demo.fragment.AdapterFragment;
 import com.rarnu.devlib.demo.fragment.ArgumentFragment;
+import com.rarnu.devlib.demo.fragment.DeviceFragment;
 import com.rarnu.devlib.demo.fragment.DialogFragment;
+import com.rarnu.devlib.demo.fragment.DownloadFragment;
+import com.rarnu.devlib.demo.fragment.FileFragment;
 import com.rarnu.devlib.demo.fragment.HScrollFragment;
+import com.rarnu.devlib.demo.fragment.HttpRequestFragment;
+import com.rarnu.devlib.demo.fragment.ImageFragment;
 import com.rarnu.devlib.demo.fragment.IndexFragment;
 import com.rarnu.devlib.demo.fragment.PopupFragment;
 import com.rarnu.devlib.demo.fragment.PullDownLayoutFragment;
@@ -21,6 +26,11 @@ public class Fragments {
 	public static VScrollFragment fVScroll = null;
 	public static PullDownListViewFragment fPullDownListView = null;
 	public static PullDownLayoutFragment fPullDownLayout = null;
+	public static DeviceFragment fDevice = null;
+	public static DownloadFragment fDownload = null;
+	public static FileFragment fFile = null;
+	public static HttpRequestFragment fHttpRequest = null;
+	public static ImageFragment fImage = null;
 
 	public static void loadFragments() {
 		if (fIndex == null) {
@@ -50,6 +60,21 @@ public class Fragments {
 		if (fPullDownLayout == null) {
 			fPullDownLayout = new PullDownLayoutFragment();
 		}
+		if (fDevice == null) {
+			fDevice = new DeviceFragment();
+		}
+		if (fDownload == null) {
+			fDownload = new DownloadFragment();
+		}
+		if (fFile == null) {
+			fFile = new FileFragment();
+		}
+		if (fHttpRequest == null) {
+			fHttpRequest = new HttpRequestFragment();
+		}
+		if (fImage == null) {
+			fImage = new ImageFragment();
+		}
 	}
 
 	public static void releaseFragments() {
@@ -62,5 +87,10 @@ public class Fragments {
 		fVScroll = null;
 		fPullDownListView = null;
 		fPullDownLayout = null;
+		fDevice = null;
+		fDownload = null;
+		fFile = null;
+		fHttpRequest = null;
+		fImage = null;
 	}
 }

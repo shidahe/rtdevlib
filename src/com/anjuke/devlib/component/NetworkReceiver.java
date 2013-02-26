@@ -6,7 +6,6 @@ import android.content.Intent;
 
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.utils.NetworkUtils;
-import com.anjuke.devlib.utils.PingUtils;
 
 public class NetworkReceiver extends BroadcastReceiver {
 
@@ -27,7 +26,7 @@ public class NetworkReceiver extends BroadcastReceiver {
 				public void run() {
 					GlobalInstance.loadingNetwork = true;
 					GlobalInstance.networkInfo = NetworkUtils.getNetworkInfo(context);
-					GlobalInstance.networkSpeed = PingUtils.testNetworkSpeed(context);
+					GlobalInstance.networkSpeed = NetworkUtils.testNetworkSpeed(context);
 					GlobalInstance.loadingNetwork = false;
 
 				}

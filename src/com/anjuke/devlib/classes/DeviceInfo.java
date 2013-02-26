@@ -17,4 +17,22 @@ public class DeviceInfo {
 	public String roBuildDescription;
 	public String roProductVersion;
 
+	public String toString() {
+		String ret = "";
+		ret += "roBuildId:" + roBuildId + "\n";
+		ret += "roBuildVersionSdk:" + roBuildVersionSdk + "\n";
+		ret += "roBuildVersionRelease:" + roBuildVersionRelease + "\n";
+		ret += "roProductModel:" + roProductModel + "\n";
+		ret += "roProductBrand:" + roProductBrand + "\n";
+		ret += "roProductName:" + roProductName + "\n";
+		ret += "roProductDevice:" + roProductDevice + "\n";
+		ret += "roProductBoard:" + roProductBoard + "\n";
+		ret += "roProductCpuAbi:" + roProductCpuAbi + "\n";
+		ret += "roProductCpuAbi2:" + roProductCpuAbi2 + "\n";
+		ret += "roProductManufacturer:" + roProductManufacturer + "\n";
+		ret += "roBoardPlatform:" + roBoardPlatform + "\n";
+		ret += "roBuildDescription:" + roBuildDescription + "\n";
+		ret += "roProductVersion:" + roProductVersion + "\n";
+		return ret;
+	}
 }

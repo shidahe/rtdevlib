@@ -16,8 +16,13 @@ import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
 import com.rarnu.devlib.demo.fragment.activity.AdapterActivity;
 import com.rarnu.devlib.demo.fragment.activity.ArgumentActivity;
+import com.rarnu.devlib.demo.fragment.activity.DeviceActivity;
 import com.rarnu.devlib.demo.fragment.activity.DialogActivity;
+import com.rarnu.devlib.demo.fragment.activity.DownloadActivity;
+import com.rarnu.devlib.demo.fragment.activity.FileActivity;
 import com.rarnu.devlib.demo.fragment.activity.HScrollActivity;
+import com.rarnu.devlib.demo.fragment.activity.HttpRequestActivity;
+import com.rarnu.devlib.demo.fragment.activity.ImageActivity;
 import com.rarnu.devlib.demo.fragment.activity.PopupActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownLayoutActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownListViewActivity;
@@ -30,6 +35,8 @@ public class IndexFragment extends BasePreferenceFragment implements
 	Preference p1_1, p1_2, p1_3;
 	Preference p2_1, p2_2, p2_3, p2_4;
 	Preference p3_1, p3_2, p3_3, p3_4;
+	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8, p4_9;
+	Preference p5_1;
 
 	MutaxReceiver mutax;
 
@@ -62,6 +69,18 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p3_3 = (Preference) findPreference(getString(R.string.id_item_3_3));
 		p3_4 = (Preference) findPreference(getString(R.string.id_item_3_4));
 
+		p4_1 = (Preference) findPreference(getString(R.string.id_item_4_1));
+		p4_2 = (Preference) findPreference(getString(R.string.id_item_4_2));
+		p4_3 = (Preference) findPreference(getString(R.string.id_item_4_3));
+		p4_4 = (Preference) findPreference(getString(R.string.id_item_4_4));
+		p4_5 = (Preference) findPreference(getString(R.string.id_item_4_5));
+		p4_6 = (Preference) findPreference(getString(R.string.id_item_4_6));
+		p4_7 = (Preference) findPreference(getString(R.string.id_item_4_7));
+		p4_8 = (Preference) findPreference(getString(R.string.id_item_4_8));
+		p4_9 = (Preference) findPreference(getString(R.string.id_item_4_9));
+
+		p5_1 = (Preference) findPreference(getString(R.string.id_item_5_1));
+
 	}
 
 	@Override
@@ -82,6 +101,18 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p3_2.setOnPreferenceClickListener(this);
 		p3_3.setOnPreferenceClickListener(this);
 		p3_4.setOnPreferenceClickListener(this);
+
+		p4_1.setOnPreferenceClickListener(this);
+		p4_2.setOnPreferenceClickListener(this);
+		p4_3.setOnPreferenceClickListener(this);
+		p4_4.setOnPreferenceClickListener(this);
+		p4_5.setOnPreferenceClickListener(this);
+		p4_6.setOnPreferenceClickListener(this);
+		p4_7.setOnPreferenceClickListener(this);
+		p4_8.setOnPreferenceClickListener(this);
+		p4_9.setOnPreferenceClickListener(this);
+
+		p5_1.setOnPreferenceClickListener(this);
 	}
 
 	@Override
@@ -154,25 +185,35 @@ public class IndexFragment extends BasePreferenceFragment implements
 					.showContent(getActivity(), PullDownListViewActivity.class,
 							Fragments.fPullDownListView);
 		} else if (key.equals(getString(R.string.id_item_4_1))) {
-			
+			GlobalInstance.currentFragment = 7;
+			FragmentStarter.showContent(getActivity(), DeviceActivity.class,
+					Fragments.fDevice);
 		} else if (key.equals(getString(R.string.id_item_4_2))) {
-			
+			GlobalInstance.currentFragment = 8;
+			FragmentStarter.showContent(getActivity(), DownloadActivity.class,
+					Fragments.fDownload);
 		} else if (key.equals(getString(R.string.id_item_4_3))) {
-			
+			GlobalInstance.currentFragment = 9;
+			FragmentStarter.showContent(getActivity(), FileActivity.class,
+					Fragments.fFile);
 		} else if (key.equals(getString(R.string.id_item_4_4))) {
-			
+			GlobalInstance.currentFragment = 10;
+			FragmentStarter.showContent(getActivity(),
+					HttpRequestActivity.class, Fragments.fHttpRequest);
 		} else if (key.equals(getString(R.string.id_item_4_5))) {
-			
+			GlobalInstance.currentFragment = 11;
+			FragmentStarter.showContent(getActivity(), ImageActivity.class,
+					Fragments.fImage);
 		} else if (key.equals(getString(R.string.id_item_4_6))) {
-			
+
 		} else if (key.equals(getString(R.string.id_item_4_7))) {
-			
+
 		} else if (key.equals(getString(R.string.id_item_4_8))) {
-			
+
 		} else if (key.equals(getString(R.string.id_item_4_9))) {
-			
+
 		} else if (key.equals(getString(R.string.id_item_5_1))) {
-			
+
 		}
 		return true;
 	}
