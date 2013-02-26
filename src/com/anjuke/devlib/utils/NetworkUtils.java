@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.anjuke.devlib.classes.PingInfo;
-import com.anjuke.devlib.utils.command.CommandResult;
-import com.anjuke.devlib.utils.command.RootUtils;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import com.anjuke.devlib.R;
+import com.anjuke.devlib.classes.PingInfo;
+import com.anjuke.devlib.common.GlobalInstance;
+import com.anjuke.devlib.utils.command.CommandResult;
+import com.anjuke.devlib.utils.command.RootUtils;
 
 public class NetworkUtils {
 
@@ -117,5 +119,75 @@ public class NetworkUtils {
 		double speed = 1024 / timeCount;
 		String speedStr = new DecimalFormat("#.##").format(speed);
 		return String.format("%sK/s", speedStr);
+	}
+	
+	public static String getNetworkStatusString(final Context context) {
+
+		if (GlobalInstance.loadingNetwork) {
+			return context.getString(R.string.loading_network_status);
+		}
+
+		String status = context.getString(R.string.no_connect_found);
+		if (GlobalInstance.networkInfo != null) {
+
+			status = String
+					.format(context.getString(R.string.network_status_fmt),
+							GlobalInstance.networkInfo.getTypeName(),
+							GlobalInstance.networkInfo.getSubtypeName(),
+							networkStatusToReadableString(context,
+									GlobalInstance.networkInfo.getState()),
+
+							(GlobalInstance.networkInfo.getExtraInfo() == null ? context
+									.getString(R.string.not_contained)
+									: GlobalInstance.networkInfo.getExtraInfo()),
+
+							(GlobalInstance.networkInfo.isRoaming() ? context
+									.getString(R.string.yes) : context
+									.getString(R.string.no)),
+							(GlobalInstance.networkInfo.isFailover() ? context
+									.getString(R.string.supported) : context
+									.getString(R.string.unsupported)),
+							(GlobalInstance.networkInfo.isAvailable() ? context
+									.getString(R.string.available) : context
+									.getString(R.string.unavailable)),
+							GlobalInstance.networkSpeed);
+		}
+
+		return status;
+
+	}
+
+	private static String networkStatusToReadableString(Context context,
+			NetworkInfo.State state) {
+		switch (state) {
+		case CONNECTED:
+			return context.getString(R.string.network_connected);
+		case CONNECTING:
+			return context.getString(R.string.network_connecting);
+		case DISCONNECTED:
+			return context.getString(R.string.network_disconnected);
+		case DISCONNECTING:
+			return context.getString(R.string.network_disconnecting);
+		case SUSPENDED:
+			return context.getString(R.string.network_suspended);
+		case UNKNOWN:
+			return context.getString(R.string.network_unknown);
+
+		}
+		return context.getString(R.string.network_unknown);
+	}
+	
+	public static void doGetNetworkInfoT(final Context context) {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				GlobalInstance.loadingNetwork = true;
+				GlobalInstance.networkInfo = NetworkUtils.getNetworkInfo(context);
+				GlobalInstance.networkSpeed = NetworkUtils.testNetworkSpeed(context);
+				GlobalInstance.loadingNetwork = false;
+
+			}
+		}).start();
 	}
 }

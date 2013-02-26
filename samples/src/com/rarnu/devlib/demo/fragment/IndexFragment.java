@@ -23,6 +23,8 @@ import com.rarnu.devlib.demo.fragment.activity.FileActivity;
 import com.rarnu.devlib.demo.fragment.activity.HScrollActivity;
 import com.rarnu.devlib.demo.fragment.activity.HttpRequestActivity;
 import com.rarnu.devlib.demo.fragment.activity.ImageActivity;
+import com.rarnu.devlib.demo.fragment.activity.NetworkActivity;
+import com.rarnu.devlib.demo.fragment.activity.NotificationActivity;
 import com.rarnu.devlib.demo.fragment.activity.PopupActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownLayoutActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownListViewActivity;
@@ -35,7 +37,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 	Preference p1_1, p1_2, p1_3;
 	Preference p2_1, p2_2, p2_3, p2_4;
 	Preference p3_1, p3_2, p3_3, p3_4;
-	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8, p4_9;
+	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8;
 	Preference p5_1;
 
 	MutaxReceiver mutax;
@@ -77,7 +79,6 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p4_6 = (Preference) findPreference(getString(R.string.id_item_4_6));
 		p4_7 = (Preference) findPreference(getString(R.string.id_item_4_7));
 		p4_8 = (Preference) findPreference(getString(R.string.id_item_4_8));
-		p4_9 = (Preference) findPreference(getString(R.string.id_item_4_9));
 
 		p5_1 = (Preference) findPreference(getString(R.string.id_item_5_1));
 
@@ -110,7 +111,6 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p4_6.setOnPreferenceClickListener(this);
 		p4_7.setOnPreferenceClickListener(this);
 		p4_8.setOnPreferenceClickListener(this);
-		p4_9.setOnPreferenceClickListener(this);
 
 		p5_1.setOnPreferenceClickListener(this);
 	}
@@ -205,12 +205,14 @@ public class IndexFragment extends BasePreferenceFragment implements
 			FragmentStarter.showContent(getActivity(), ImageActivity.class,
 					Fragments.fImage);
 		} else if (key.equals(getString(R.string.id_item_4_6))) {
-
+			GlobalInstance.currentFragment = 12;
+			FragmentStarter.showContent(getActivity(), NetworkActivity.class,
+					Fragments.fNetwork);
 		} else if (key.equals(getString(R.string.id_item_4_7))) {
-
+			GlobalInstance.currentFragment = 13;
+			FragmentStarter.showContent(getActivity(),
+					NotificationActivity.class, Fragments.fNotification);
 		} else if (key.equals(getString(R.string.id_item_4_8))) {
-
-		} else if (key.equals(getString(R.string.id_item_4_9))) {
 
 		} else if (key.equals(getString(R.string.id_item_5_1))) {
 

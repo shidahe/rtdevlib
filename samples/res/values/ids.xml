@@ -19,8 +19,7 @@
     <string name="id_item_4_5">Image</string>
     <string name="id_item_4_6">Network</string>
     <string name="id_item_4_7">Notification</string>
-    <string name="id_item_4_8">Share</string>
-    <string name="id_item_4_9">UI</string>
+    <string name="id_item_4_8">UI</string>
     <string name="id_item_5_1">Run</string>
 
 </resources>

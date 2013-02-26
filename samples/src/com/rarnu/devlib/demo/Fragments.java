@@ -10,6 +10,8 @@ import com.rarnu.devlib.demo.fragment.HScrollFragment;
 import com.rarnu.devlib.demo.fragment.HttpRequestFragment;
 import com.rarnu.devlib.demo.fragment.ImageFragment;
 import com.rarnu.devlib.demo.fragment.IndexFragment;
+import com.rarnu.devlib.demo.fragment.NetworkFragment;
+import com.rarnu.devlib.demo.fragment.NotificationFragment;
 import com.rarnu.devlib.demo.fragment.PopupFragment;
 import com.rarnu.devlib.demo.fragment.PullDownLayoutFragment;
 import com.rarnu.devlib.demo.fragment.PullDownListViewFragment;
@@ -31,6 +33,8 @@ public class Fragments {
 	public static FileFragment fFile = null;
 	public static HttpRequestFragment fHttpRequest = null;
 	public static ImageFragment fImage = null;
+	public static NetworkFragment fNetwork = null;
+	public static NotificationFragment fNotification = null;
 
 	public static void loadFragments() {
 		if (fIndex == null) {
@@ -75,6 +79,12 @@ public class Fragments {
 		if (fImage == null) {
 			fImage = new ImageFragment();
 		}
+		if (fNetwork == null) {
+			fNetwork = new NetworkFragment();
+		}
+		if (fNotification == null) {
+			fNotification = new NotificationFragment();
+		}
 	}
 
 	public static void releaseFragments() {
@@ -92,5 +102,7 @@ public class Fragments {
 		fFile = null;
 		fHttpRequest = null;
 		fImage = null;
+		fNetwork = null;
+		fNotification = null;
 	}
 }

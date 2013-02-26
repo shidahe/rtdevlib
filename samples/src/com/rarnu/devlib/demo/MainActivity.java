@@ -9,6 +9,7 @@ import android.widget.ShareActionProvider;
 
 import com.anjuke.devlib.base.BaseMainActivity;
 import com.anjuke.devlib.common.GlobalInstance;
+import com.anjuke.devlib.utils.NetworkUtils;
 import com.anjuke.devlib.utils.UIUtils;
 
 public class MainActivity extends BaseMainActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	public void initOnce() {
-
+		NetworkUtils.doGetNetworkInfoT(this);
 	}
 
 	@Override
@@ -57,6 +58,10 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fHttpRequest;
 		case 11:
 			return Fragments.fImage;
+		case 12:
+			return Fragments.fNetwork;
+		case 13:
+			return Fragments.fNotification;
 		}
 		return Fragments.fDetail;
 	}

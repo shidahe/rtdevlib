@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.utils.NetworkUtils;
 
 public class NetworkReceiver extends BroadcastReceiver {
@@ -20,17 +19,7 @@ public class NetworkReceiver extends BroadcastReceiver {
 		}
 
 		if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-			new Thread(new Runnable() {
-
-				@Override
-				public void run() {
-					GlobalInstance.loadingNetwork = true;
-					GlobalInstance.networkInfo = NetworkUtils.getNetworkInfo(context);
-					GlobalInstance.networkSpeed = NetworkUtils.testNetworkSpeed(context);
-					GlobalInstance.loadingNetwork = false;
-
-				}
-			}).start();
+			NetworkUtils.doGetNetworkInfoT(context);
 
 		}
 

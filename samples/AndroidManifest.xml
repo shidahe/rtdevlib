@@ -80,6 +80,14 @@
             android:name=".fragment.activity.ImageActivity"
             android:label="@string/file_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.NetworkActivity"
+            android:label="@string/network_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.NotificationActivity"
+            android:label="@string/network_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>
@@ -87,6 +95,11 @@
         <receiver android:name=".receiver.NotifyReceiver" >
             <intent-filter>
                 <action android:name="anjuke.action.notify" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.anjuke.devlib.component.NetworkReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
     </application>

@@ -39,12 +39,10 @@ public class UIUtils {
 
 	public static boolean touchInDialog(Activity activity, MotionEvent e) {
 		int leftW, rightW, topH, bottomH;
-
 		leftW = 8;
 		rightW = dm.widthPixels - leftW;
 		topH = 0;
 		bottomH = 450;
-
 		return ((e.getX() > leftW) && (e.getX() < rightW) && (e.getY() > topH) && (e
 				.getY() < bottomH));
 	}
@@ -126,12 +124,18 @@ public class UIUtils {
 		return (int) (scaledPx * dm.density);
 	}
 
-	public static int getButtonAdvWidth(int count, int margin) {
-		int width = dm.widthPixels;
-		width = width - (margin * (count + 1));
+	public static int countViewAdvWidth(int count, int innerMargin, int outerMargin) {
+		int width = dm.widthPixels - (outerMargin * 2);
+		width = width - (innerMargin * (count - 1));
 		width = width / count;
 		return width;
-
+	}
+	
+	public static int countViewAdvHeight(int count, int innerMargin, int outerMargin) {
+		int height = dm.heightPixels - (outerMargin * 2);
+		height = height - (innerMargin * (count - 1));
+		height = height / count;
+		return height;
 	}
 
 	public static int getWidth() {
