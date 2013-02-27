@@ -18,6 +18,7 @@ import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.utils.NetworkUtils;
+import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class BaseMainActivity extends Activity implements IFragments {
 
@@ -26,6 +27,7 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+		UIUtils.initDisplayMetrics(this, getWindowManager());
 		super.onCreate(savedInstanceState);
 		registerReceiver(receiverHome, filterHome);
 

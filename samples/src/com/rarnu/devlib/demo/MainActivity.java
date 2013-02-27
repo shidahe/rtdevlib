@@ -10,7 +10,6 @@ import android.widget.ShareActionProvider;
 import com.anjuke.devlib.base.BaseMainActivity;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.utils.NetworkUtils;
-import com.anjuke.devlib.utils.UIUtils;
 
 public class MainActivity extends BaseMainActivity {
 
@@ -19,7 +18,6 @@ public class MainActivity extends BaseMainActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		GlobalInstance.init(this, true);
-		UIUtils.initDisplayMetrics(this, getWindowManager());
 		super.onCreate(savedInstanceState);
 	}
 
@@ -62,6 +60,10 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fNetwork;
 		case 13:
 			return Fragments.fNotification;
+		case 14:
+			return Fragments.fUI;
+		case 15:
+			return Fragments.fRun;
 		}
 		return Fragments.fDetail;
 	}

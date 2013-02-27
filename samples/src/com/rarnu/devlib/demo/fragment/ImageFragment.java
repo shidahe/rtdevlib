@@ -18,9 +18,9 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 	ImageView ivOrigin;
 	ImageView ivChanged;
 	Button btnRotate, btnFlip, btnRound, btnBlackWhite, btnBlur;
-	
+
 	Bitmap bmpOrigin, bmpChanged;
-	
+
 	@Override
 	protected int getBarTitle() {
 		return R.string.image_name;
@@ -40,7 +40,7 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 		btnRound = (Button) innerView.findViewById(R.id.btnRound);
 		btnBlackWhite = (Button) innerView.findViewById(R.id.btnBlackWhite);
 		btnBlur = (Button) innerView.findViewById(R.id.btnBlur);
-		
+
 	}
 
 	@Override
@@ -72,7 +72,6 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	protected void initMenu(Menu menu) {
-		
 
 	}
 
@@ -93,7 +92,7 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 			ivChanged.setImageBitmap(bmpChanged);
 			break;
 		case R.id.btnRound:
-			bmpChanged = ImageUtils.roundedCornerBitmap(bmpOrigin);
+			bmpChanged = ImageUtils.roundedCornerBitmap(bmpOrigin, 24);
 			ivChanged.setImageBitmap(bmpChanged);
 			break;
 		case R.id.btnBlackWhite:
@@ -105,7 +104,7 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 			ivChanged.setImageBitmap(bmpChanged);
 			break;
 		}
-		
+
 	}
 
 }

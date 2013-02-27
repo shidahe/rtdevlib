@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tv40"
+        android:layout_width="wrap_content"
+        android:layout_height="24dip"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF00"
+        android:gravity="center"
+        android:text="40%" />
+
+    <TextView
+        android:id="@+id/tv60"
+        android:layout_width="wrap_content"
+        android:layout_height="24dip"
+        android:layout_below="@+id/tv40"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dip"
+        android:background="#FFFFFF00"
+        android:gravity="center"
+        android:text="60%" />
+
+    <TextView
+        android:id="@+id/tv80"
+        android:layout_width="wrap_content"
+        android:layout_height="24dip"
+        android:layout_below="@+id/tv60"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dip"
+        android:background="#FFFFFF00"
+        android:gravity="center"
+        android:text="80%" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv80"
+        android:layout_marginTop="8dip"
+        android:orientation="horizontal"
+        android:padding="16dip" >
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:text="3" />
+    </LinearLayout>
+
+</RelativeLayout>

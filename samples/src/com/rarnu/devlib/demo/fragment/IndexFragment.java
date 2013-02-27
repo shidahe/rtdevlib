@@ -28,6 +28,8 @@ import com.rarnu.devlib.demo.fragment.activity.NotificationActivity;
 import com.rarnu.devlib.demo.fragment.activity.PopupActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownLayoutActivity;
 import com.rarnu.devlib.demo.fragment.activity.PullDownListViewActivity;
+import com.rarnu.devlib.demo.fragment.activity.RunActivity;
+import com.rarnu.devlib.demo.fragment.activity.UIActivity;
 import com.rarnu.devlib.demo.fragment.activity.VScrollActivity;
 import com.rarnu.devlib.demo.service.DemoService;
 
@@ -213,9 +215,13 @@ public class IndexFragment extends BasePreferenceFragment implements
 			FragmentStarter.showContent(getActivity(),
 					NotificationActivity.class, Fragments.fNotification);
 		} else if (key.equals(getString(R.string.id_item_4_8))) {
-
+			GlobalInstance.currentFragment = 14;
+			FragmentStarter.showContent(getActivity(), UIActivity.class,
+					Fragments.fUI);
 		} else if (key.equals(getString(R.string.id_item_5_1))) {
-
+			GlobalInstance.currentFragment = 15;
+			FragmentStarter.showContent(getActivity(), RunActivity.class,
+					Fragments.fRun);
 		}
 		return true;
 	}

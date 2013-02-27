@@ -31,10 +31,10 @@ public class UIUtils {
 		if (context == null) {
 			context = ctx;
 		}
-		if (dm == null) {
-			dm = new DisplayMetrics();
-			wm.getDefaultDisplay().getMetrics(dm);
-		}
+
+		dm = new DisplayMetrics();
+		wm.getDefaultDisplay().getMetrics(dm);
+
 	}
 
 	public static boolean touchInDialog(Activity activity, MotionEvent e) {
@@ -124,15 +124,33 @@ public class UIUtils {
 		return (int) (scaledPx * dm.density);
 	}
 
-	public static int countViewAdvWidth(int count, int innerMargin, int outerMargin) {
+	public static int countViewAdvWidth(int count, int innerMargin,
+			int outerMargin) {
 		int width = dm.widthPixels - (outerMargin * 2);
 		width = width - (innerMargin * (count - 1));
 		width = width / count;
 		return width;
 	}
-	
-	public static int countViewAdvHeight(int count, int innerMargin, int outerMargin) {
+
+	public static int countViewAdvWidthByFrame(int count, int innerMargin,
+			int outerMargin, int frameWidth) {
+		int width = frameWidth - (outerMargin * 2);
+		width = width - (innerMargin * (count - 1));
+		width = width / count;
+		return width;
+	}
+
+	public static int countViewAdvHeight(int count, int innerMargin,
+			int outerMargin) {
 		int height = dm.heightPixels - (outerMargin * 2);
+		height = height - (innerMargin * (count - 1));
+		height = height / count;
+		return height;
+	}
+
+	public static int countViewAdvHeightByFrame(int count, int innerMargin,
+			int outerMargin, int frameHeight) {
+		int height = frameHeight - (outerMargin * 2);
 		height = height - (innerMargin * (count - 1));
 		height = height / count;
 		return height;
@@ -191,6 +209,20 @@ public class UIUtils {
 	public static void setViewPercentY(View v, float percent) {
 		ViewGroup.LayoutParams lp = v.getLayoutParams();
 		lp.height = (int) (getHeight() * percent / 100);
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewPercentXByFrame(View v, float percent,
+			float frameXPercent) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.width = (int) ((getWidth() * frameXPercent / 100) * percent / 100);
+		v.setLayoutParams(lp);
+	}
+
+	public static void setViewPercentYByFrame(View v, float percent,
+			float frameYPercent) {
+		ViewGroup.LayoutParams lp = v.getLayoutParams();
+		lp.height = (int) ((getHeight() * frameYPercent / 100) * percent / 100);
 		v.setLayoutParams(lp);
 	}
 

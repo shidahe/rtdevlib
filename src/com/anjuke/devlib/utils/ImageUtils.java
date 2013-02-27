@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -41,7 +42,7 @@ public class ImageUtils {
 		return bitmap;
 	}
 
-	public static Bitmap roundedCornerBitmap(Bitmap bitmap) {
+	public static Bitmap roundedCornerBitmap(Bitmap bitmap, float radis) {
 		Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
 				bitmap.getHeight(), Config.ARGB_8888);
 		Canvas canvas = new Canvas(output);
@@ -50,7 +51,7 @@ public class ImageUtils {
 		final Paint paint = new Paint();
 		final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
 		final RectF rectF = new RectF(rect);
-		final float roundPx = 24;
+		final float roundPx = radis;
 
 		paint.setAntiAlias(true);
 		canvas.drawARGB(0, 0, 0, 0);
@@ -135,13 +136,14 @@ public class ImageUtils {
 		return bytes;
 	}
 
-	public static void saveBitmapToFile(Bitmap bmp, String fileName) {
+	public static void saveBitmapToFile(Bitmap bmp, String fileName,
+			CompressFormat format) {
 		try {
 			File f = new File(fileName);
 			f.createNewFile();
 			FileOutputStream fOut = null;
 			fOut = new FileOutputStream(f);
-			bmp.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+			bmp.compress(format, 100, fOut);
 			fOut.flush();
 			fOut.close();
 		} catch (Exception e) {
@@ -195,6 +197,22 @@ public class ImageUtils {
 
 		return bmpReturn;
 
+	}
+
+	public static Bitmap colorMatrixBmp(Bitmap bmp, float[] matrixSrc) {
+
+		int width = bmp.getWidth();
+		int height = bmp.getHeight();
+
+		ColorMatrix matrix = new ColorMatrix();
+		matrix.set(matrixSrc);
+		ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+		Paint p = new Paint();
+		p.setColorFilter(filter);
+		Bitmap colorBmp = Bitmap.createBitmap(width, height, bmp.getConfig());
+		Canvas c = new Canvas(colorBmp);
+		c.drawBitmap(bmp, 0, 0, p);
+		return colorBmp;
 	}
 
 }

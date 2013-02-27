@@ -88,6 +88,14 @@
             android:name=".fragment.activity.NotificationActivity"
             android:label="@string/network_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.UIActivity"
+            android:label="@string/network_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.RunActivity"
+            android:label="@string/network_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>

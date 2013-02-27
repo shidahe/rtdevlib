@@ -15,6 +15,8 @@ import com.rarnu.devlib.demo.fragment.NotificationFragment;
 import com.rarnu.devlib.demo.fragment.PopupFragment;
 import com.rarnu.devlib.demo.fragment.PullDownLayoutFragment;
 import com.rarnu.devlib.demo.fragment.PullDownListViewFragment;
+import com.rarnu.devlib.demo.fragment.RunFragment;
+import com.rarnu.devlib.demo.fragment.UIFragment;
 import com.rarnu.devlib.demo.fragment.VScrollFragment;
 
 public class Fragments {
@@ -35,6 +37,8 @@ public class Fragments {
 	public static ImageFragment fImage = null;
 	public static NetworkFragment fNetwork = null;
 	public static NotificationFragment fNotification = null;
+	public static UIFragment fUI = null;
+	public static RunFragment fRun = null;
 
 	public static void loadFragments() {
 		if (fIndex == null) {
@@ -85,6 +89,12 @@ public class Fragments {
 		if (fNotification == null) {
 			fNotification = new NotificationFragment();
 		}
+		if (fUI == null) {
+			fUI = new UIFragment();
+		}
+		if (fRun == null) {
+			fRun = new RunFragment();
+		}
 	}
 
 	public static void releaseFragments() {
@@ -104,5 +114,7 @@ public class Fragments {
 		fImage = null;
 		fNetwork = null;
 		fNotification = null;
+		fUI = null;
+		fRun = null;
 	}
 }

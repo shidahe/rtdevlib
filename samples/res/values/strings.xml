@@ -28,6 +28,10 @@
     <string name="network_name_with_path">MainActivity &gt; NetworkFragment</string>
     <string name="notification_name">NotificationFragment</string>
     <string name="notification_name_with_path">MainActivity &gt; NotificationFragment</string>
+    <string name="ui_name">UIFragment</string>
+    <string name="ui_name_with_path">MainActivity &gt; UIFragment</string>
+    <string name="run_name">RunFragment</string>
+    <string name="run_name_with_path">MainActivity &gt; RunFragment</string>
     
     <string name="test_cat_1">Fragment</string>
     <string name="test_cat_2">Base.Impl</string>
@@ -82,4 +86,6 @@
     <string name="chk_can_close">Can Close</string>
     <string name="notification_title">Notification Title</string>
     <string name="notification_desc">Notification Description</string>
+    <string name="et_command">Enter a command</string>
+    <string name="btn_run">Run</string>
 </resources>
