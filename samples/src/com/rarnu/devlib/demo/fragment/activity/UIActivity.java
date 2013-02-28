@@ -4,6 +4,7 @@ import android.app.Fragment;
 
 import com.anjuke.devlib.base.BaseActivity;
 import com.rarnu.devlib.demo.Fragments;
+import com.rarnu.devlib.demo.R;
 
 public class UIActivity extends BaseActivity {
 
@@ -12,4 +13,8 @@ public class UIActivity extends BaseActivity {
 		return Fragments.fUI;
 	}
 
+	@Override
+	public int getIcon() {
+		return R.drawable.ic_launcher;
+	}
 }

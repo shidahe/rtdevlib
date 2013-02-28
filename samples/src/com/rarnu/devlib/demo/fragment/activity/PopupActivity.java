@@ -4,6 +4,7 @@ import android.app.Fragment;
 
 import com.anjuke.devlib.base.BasePopupActivity;
 import com.rarnu.devlib.demo.Fragments;
+import com.rarnu.devlib.demo.R;
 
 public class PopupActivity extends BasePopupActivity {
 
@@ -12,4 +13,8 @@ public class PopupActivity extends BasePopupActivity {
 		return Fragments.fPopup;
 	}
 
+	@Override
+	public int getIcon() {
+		return R.drawable.ic_launcher;
+	}
 }
