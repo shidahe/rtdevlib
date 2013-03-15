@@ -12,6 +12,7 @@
     <string name="id_item_3_2">VScrollLayout</string>
     <string name="id_item_3_3">PullDownLayout</string>
     <string name="id_item_3_4">PullDownListView</string>
+    <string name="id_item_3_5">SlideMenu</string>
     <string name="id_item_4_1">Device</string>
     <string name="id_item_4_2">Download</string>
     <string name="id_item_4_3">File</string>
@@ -22,4 +23,7 @@
     <string name="id_item_4_8">UI</string>
     <string name="id_item_5_1">Run</string>
 
+    <string name="menuid_item_1">Item_1</string>
+    <string name="menuid_item_2">Item_2</string>
+    <string name="menuid_item_3">Item_3</string>
 </resources>

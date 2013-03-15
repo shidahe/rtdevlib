@@ -45,6 +45,10 @@
             android:label="@string/adapter_name" >
         </activity>
         <activity
+            android:name=".fragment.activity.SlideActivity"
+            android:label="@string/slidemenu_name" >
+        </activity>
+        <activity
             android:name=".fragment.activity.HScrollActivity"
             android:label="@string/scroll_name" >
         </activity>

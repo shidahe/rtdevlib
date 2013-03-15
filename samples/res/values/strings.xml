@@ -14,6 +14,7 @@
     <string name="pulldown_listview_name_with_path">MainActivity &gt; PullDownListViewFragment</string>
     <string name="pulldown_layout_name">PullDownLayoutFragment</string>
     <string name="pulldown_layout_name_with_path">MainActivity &gt; PullDownLayoutFragment</string>
+    <string name="slidemenu_name">SlideMenuFragment</string>
     <string name="device_name">DeviceFragment</string>
     <string name="device_name_with_path">MainActivity &gt; DeviceFragment</string>
     <string name="download_name">DownloadFragment</string>
@@ -52,6 +53,7 @@
     <string name="item_3_2">VScrollLayout</string>
     <string name="item_3_3">PullDownLayout</string>
     <string name="item_3_4">PullDownListView</string>
+    <string name="item_3_5">SlideMenu</string>
     
     <string name="item_4_1">Device</string>
     <string name="item_4_2">Download</string>
@@ -63,6 +65,10 @@
     <string name="item_4_8">UI</string>
     
     <string name="item_5_1">Run</string>
+    
+    <string name="menu_item_1">Item 1</string>
+    <string name="menu_item_2">Item 2</string>
+    <string name="menu_item_3">Item 3</string>
     
     <string name="btn_show_id">Show ID</string>
     <string name="btn_close">Close</string>
