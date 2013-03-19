@@ -3,10 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <com.anjuke.devlib.component.EndlessViewPager
+        android:id="@+id/evp"
+        android:layout_width="match_parent"
+        android:layout_height="200dip" >
+    </com.anjuke.devlib.component.EndlessViewPager>
+
+    <com.anjuke.devlib.component.PointBar
+        android:id="@+id/evpPoint"
+        android:layout_width="match_parent"
+        android:layout_height="16dip"
+        android:layout_below="@+id/evp"
+        android:layout_marginTop="-24dip" >
+    </com.anjuke.devlib.component.PointBar>
+
     <com.anjuke.devlib.component.HScrollLayout
         android:id="@+id/hsl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_below="@+id/evp" >
 
         <RelativeLayout
             android:layout_width="match_parent"
