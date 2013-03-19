@@ -18,6 +18,7 @@ import com.rarnu.devlib.demo.fragment.PullDownListViewFragment;
 import com.rarnu.devlib.demo.fragment.RunFragment;
 import com.rarnu.devlib.demo.fragment.SlideContentFragment;
 import com.rarnu.devlib.demo.fragment.SlideMenuFragment;
+import com.rarnu.devlib.demo.fragment.SlideSecondMenuFragment;
 import com.rarnu.devlib.demo.fragment.UIFragment;
 import com.rarnu.devlib.demo.fragment.VScrollFragment;
 
@@ -43,6 +44,7 @@ public class Fragments {
 	public static RunFragment fRun = null;
 	public static SlideMenuFragment fSlideMenu = null;
 	public static SlideContentFragment fSlideContent = null;
+	public static SlideSecondMenuFragment fSlideSecondMenu = null;
 	
 	public static void loadFragments() {
 		if (fIndex == null) {
@@ -105,6 +107,9 @@ public class Fragments {
 		if (fSlideContent == null) {
 			fSlideContent = new SlideContentFragment();
 		}
+		if (fSlideSecondMenu == null) {
+			fSlideSecondMenu = new SlideSecondMenuFragment();
+		}
 	}
  
 	public static void releaseFragments() {
@@ -128,5 +133,6 @@ public class Fragments {
 		fRun = null;
 		fSlideMenu = null;
 		fSlideContent = null;
+		fSlideSecondMenu = null;
 	}
 }

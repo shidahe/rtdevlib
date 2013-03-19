@@ -26,4 +26,7 @@
     <string name="menuid_item_1">Item_1</string>
     <string name="menuid_item_2">Item_2</string>
     <string name="menuid_item_3">Item_3</string>
+    <string name="menuid_item_4">Item_4</string>
+    <string name="menuid_item_5">Item_5</string>
+    <string name="menuid_item_6">Item_6</string>
 </resources>

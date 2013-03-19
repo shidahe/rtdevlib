@@ -39,4 +39,19 @@ public class SlideActivity extends BaseSlidingActivity {
 		return SlidingMenu.TOUCHMODE_MARGIN;
 	}
 
+	@Override
+	public int getSlideMode() {
+		// LEFT
+		// RIGHT
+		// LEFT_RIGHT
+		return SlidingMenu.LEFT_RIGHT;
+	}
+
+	@Override
+	public Fragment replaceSecondMenuFragment() {
+		// if you choosed LEFT or RIGHT
+		// keep this method returns null
+		return Fragments.fSlideSecondMenu;
+	}
+
 }
