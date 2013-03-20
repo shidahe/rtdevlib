@@ -42,17 +42,10 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 
 	@Override
 	protected void onDestroy() {
+		releaseFragments();
+		oneTimeRun = false;
 		unregisterReceiver(receiverHome);
 		super.onDestroy();
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			releaseFragments();
-			oneTimeRun = false;
-		}
-		return super.onKeyDown(keyCode, event);
 	}
 
 	private void initOneTime() {
