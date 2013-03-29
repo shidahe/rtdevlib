@@ -6,6 +6,7 @@ import com.rarnu.devlib.demo.fragment.DeviceFragment;
 import com.rarnu.devlib.demo.fragment.DialogFragment;
 import com.rarnu.devlib.demo.fragment.DownloadFragment;
 import com.rarnu.devlib.demo.fragment.FileFragment;
+import com.rarnu.devlib.demo.fragment.FloatWindowFragment;
 import com.rarnu.devlib.demo.fragment.HScrollFragment;
 import com.rarnu.devlib.demo.fragment.HttpRequestFragment;
 import com.rarnu.devlib.demo.fragment.ImageFragment;
@@ -45,73 +46,33 @@ public class Fragments {
 	public static SlideMenuFragment fSlideMenu = null;
 	public static SlideContentFragment fSlideContent = null;
 	public static SlideSecondMenuFragment fSlideSecondMenu = null;
-	
+	public static FloatWindowFragment fFloatWindow = null;
+
 	public static void loadFragments() {
-		if (fIndex == null) {
-			fIndex = new IndexFragment();
-		}
-		if (fDetail == null) {
-			fDetail = new ArgumentFragment();
-		}
-		if (fAdapter == null) {
-			fAdapter = new AdapterFragment();
-		}
-		if (fDialog == null) {
-			fDialog = new DialogFragment();
-		}
-		if (fPopup == null) {
-			fPopup = new PopupFragment();
-		}
-		if (fHScroll == null) {
-			fHScroll = new HScrollFragment();
-		}
-		if (fVScroll == null) {
-			fVScroll = new VScrollFragment();
-		}
-		if (fPullDownListView == null) {
-			fPullDownListView = new PullDownListViewFragment();
-		}
-		if (fPullDownLayout == null) {
-			fPullDownLayout = new PullDownLayoutFragment();
-		}
-		if (fDevice == null) {
-			fDevice = new DeviceFragment();
-		}
-		if (fDownload == null) {
-			fDownload = new DownloadFragment();
-		}
-		if (fFile == null) {
-			fFile = new FileFragment();
-		}
-		if (fHttpRequest == null) {
-			fHttpRequest = new HttpRequestFragment();
-		}
-		if (fImage == null) {
-			fImage = new ImageFragment();
-		}
-		if (fNetwork == null) {
-			fNetwork = new NetworkFragment();
-		}
-		if (fNotification == null) {
-			fNotification = new NotificationFragment();
-		}
-		if (fUI == null) {
-			fUI = new UIFragment();
-		}
-		if (fRun == null) {
-			fRun = new RunFragment();
-		}
-		if (fSlideMenu == null) {
-			fSlideMenu = new SlideMenuFragment();
-		}
-		if (fSlideContent == null) {
-			fSlideContent = new SlideContentFragment();
-		}
-		if (fSlideSecondMenu == null) {
-			fSlideSecondMenu = new SlideSecondMenuFragment();
-		}
+		fIndex = new IndexFragment();
+		fDetail = new ArgumentFragment();
+		fAdapter = new AdapterFragment();
+		fDialog = new DialogFragment();
+		fPopup = new PopupFragment();
+		fHScroll = new HScrollFragment();
+		fVScroll = new VScrollFragment();
+		fPullDownListView = new PullDownListViewFragment();
+		fPullDownLayout = new PullDownLayoutFragment();
+		fDevice = new DeviceFragment();
+		fDownload = new DownloadFragment();
+		fFile = new FileFragment();
+		fHttpRequest = new HttpRequestFragment();
+		fImage = new ImageFragment();
+		fNetwork = new NetworkFragment();
+		fNotification = new NotificationFragment();
+		fUI = new UIFragment();
+		fRun = new RunFragment();
+		fSlideMenu = new SlideMenuFragment();
+		fSlideContent = new SlideContentFragment();
+		fSlideSecondMenu = new SlideSecondMenuFragment();
+		fFloatWindow = new FloatWindowFragment();
 	}
- 
+
 	public static void releaseFragments() {
 		fIndex = null;
 		fDetail = null;
@@ -134,5 +95,6 @@ public class Fragments {
 		fSlideMenu = null;
 		fSlideContent = null;
 		fSlideSecondMenu = null;
+		fFloatWindow = null;
 	}
 }

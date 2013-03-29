@@ -20,6 +20,7 @@ import com.rarnu.devlib.demo.fragment.activity.DeviceActivity;
 import com.rarnu.devlib.demo.fragment.activity.DialogActivity;
 import com.rarnu.devlib.demo.fragment.activity.DownloadActivity;
 import com.rarnu.devlib.demo.fragment.activity.FileActivity;
+import com.rarnu.devlib.demo.fragment.activity.FloatWindowActivity;
 import com.rarnu.devlib.demo.fragment.activity.HScrollActivity;
 import com.rarnu.devlib.demo.fragment.activity.HttpRequestActivity;
 import com.rarnu.devlib.demo.fragment.activity.ImageActivity;
@@ -39,7 +40,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 
 	Preference p1_1, p1_2, p1_3;
 	Preference p2_1, p2_2, p2_3, p2_4;
-	Preference p3_1, p3_2, p3_3, p3_4, p3_5;
+	Preference p3_1, p3_2, p3_3, p3_4, p3_5, p3_6;
 	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8;
 	Preference p5_1;
 
@@ -74,6 +75,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p3_3 = (Preference) findPreference(getString(R.string.id_item_3_3));
 		p3_4 = (Preference) findPreference(getString(R.string.id_item_3_4));
 		p3_5 = (Preference) findPreference(getString(R.string.id_item_3_5));
+		p3_6 = (Preference) findPreference(getString(R.string.id_item_3_6));
 
 		p4_1 = (Preference) findPreference(getString(R.string.id_item_4_1));
 		p4_2 = (Preference) findPreference(getString(R.string.id_item_4_2));
@@ -107,6 +109,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p3_3.setOnPreferenceClickListener(this);
 		p3_4.setOnPreferenceClickListener(this);
 		p3_5.setOnPreferenceClickListener(this);
+		p3_6.setOnPreferenceClickListener(this);
 
 		p4_1.setOnPreferenceClickListener(this);
 		p4_2.setOnPreferenceClickListener(this);
@@ -191,6 +194,10 @@ public class IndexFragment extends BasePreferenceFragment implements
 							Fragments.fPullDownListView);
 		} else if (key.equals(getString(R.string.id_item_3_5))) {
 			startActivity(new Intent(getActivity(), SlideActivity.class));
+		} else if (key.equals(getString(R.string.id_item_3_6))) {
+			GlobalInstance.currentFragment = 16;
+			FragmentStarter.showContent(getActivity(),
+					FloatWindowActivity.class, Fragments.fFloatWindow);
 		} else if (key.equals(getString(R.string.id_item_4_1))) {
 			GlobalInstance.currentFragment = 7;
 			FragmentStarter.showContent(getActivity(), DeviceActivity.class,

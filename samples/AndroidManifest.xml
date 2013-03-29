@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -100,8 +101,14 @@
             android:name=".fragment.activity.RunActivity"
             android:label="@string/network_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.FloatWindowActivity"
+            android:label="@string/float_window_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
+        </service>
+        <service android:name=".service.DemoFloatWindowService" >
         </service>
 
         <receiver android:name=".receiver.NotifyReceiver" >

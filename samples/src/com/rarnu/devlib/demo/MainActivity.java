@@ -64,6 +64,8 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fUI;
 		case 15:
 			return Fragments.fRun;
+		case 16:
+			return Fragments.fFloatWindow;
 		}
 		return Fragments.fDetail;
 	}
