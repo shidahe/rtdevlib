@@ -1,6 +1,7 @@
 package com.rarnu.devlib.demo.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,14 +12,18 @@ import android.widget.TextView;
 import com.anjuke.devlib.base.BaseFragment;
 import com.anjuke.devlib.utils.command.CommandResult;
 import com.anjuke.devlib.utils.command.RootUtils;
+import com.anjuke.devlib.utils.command.emu.EmulatorTool;
+import com.anjuke.devlib.utils.command.emu.event.IEmuCallback;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
 
-public class RunFragment extends BaseFragment implements OnClickListener {
+public class RunFragment extends BaseFragment implements OnClickListener, IEmuCallback {
 
 	EditText etCommand;
 	Button btnRun;
 	TextView tvResult;
+	
+	EmulatorTool tool;
 
 	@Override
 	protected int getBarTitle() {
@@ -35,7 +40,7 @@ public class RunFragment extends BaseFragment implements OnClickListener {
 		etCommand = (EditText) innerView.findViewById(R.id.etCommand);
 		btnRun = (Button) innerView.findViewById(R.id.btnRun);
 		tvResult = (TextView) innerView.findViewById(R.id.tvResult);
-
+		tool = new EmulatorTool(this);
 	}
 
 	@Override
@@ -46,7 +51,7 @@ public class RunFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	protected void initLogic() {
-
+		tool.listen();
 	}
 
 	@Override
@@ -68,6 +73,13 @@ public class RunFragment extends BaseFragment implements OnClickListener {
 	protected void onGetNewArguments(Bundle bn) {
 
 	}
+	
+	@Override
+	public void onDestroyView() {
+		Log.e("EmulatorTool", "close");
+		tool.close();
+		super.onDestroyView();
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -79,5 +91,25 @@ public class RunFragment extends BaseFragment implements OnClickListener {
 		String ret = "result$: " + cr.result + "\nerror$: " + cr.error;
 		tvResult.setText(ret);
 	}
+
+	@Override
+	public void openingEmu() {
+		tool.write("su\r");
+		tool.write("getevent\r");
+		
+	}
+
+	@Override
+	public void closingEmu() {
+		tool.write("killall getevent\r");
+		tool.write("exit\r");
+	}
+
+	@Override
+	public void receiveEmuMessage(String msg) {
+		Log.e("EmulatorTool", msg);
+		
+	}
+
 
 }
