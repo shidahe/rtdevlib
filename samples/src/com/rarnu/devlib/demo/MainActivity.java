@@ -79,7 +79,7 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	public void initMenu(Menu menu) {
-		itemShare = menu.add(0, 1, 0, "Share");
+		itemShare = menu.add(0, 1, 150, "Share");
 		itemShare.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		itemShare.setIcon(android.R.drawable.ic_menu_share);
 		ShareActionProvider actionProvider = new ShareActionProvider(this);

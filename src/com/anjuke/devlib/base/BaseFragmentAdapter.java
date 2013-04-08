@@ -68,7 +68,7 @@ public class BaseFragmentAdapter extends PagerAdapter {
 		if (transaction != null) {
 			transaction.commitAllowingStateLoss();
 			transaction = null;
-			fragmentManager.executePendingTransactions();
+			// fragmentManager.executePendingTransactions();
 		}
 	}
 
