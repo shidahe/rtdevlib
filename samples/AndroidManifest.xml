@@ -4,8 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8"/>
+    <uses-sdk android:minSdkVersion="8" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -103,6 +102,10 @@
         <activity
             android:name=".fragment.activity.FloatWindowActivity"
             android:label="@string/float_window_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.TabActivity"
+            android:label="@string/tab_name" >
         </activity>
 
         <service android:name=".service.DemoService" >

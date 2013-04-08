@@ -14,6 +14,7 @@
     <string name="id_item_3_4">PullDownListView</string>
     <string name="id_item_3_5">SlideMenu</string>
     <string name="id_item_3_6">FloatWindow</string>
+    <string name="id_item_3_7">Tab</string>
     <string name="id_item_4_1">Device</string>
     <string name="id_item_4_2">Download</string>
     <string name="id_item_4_3">File</string>

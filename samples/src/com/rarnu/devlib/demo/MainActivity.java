@@ -66,6 +66,8 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fRun;
 		case 16:
 			return Fragments.fFloatWindow;
+		case 17:
+			return Fragments.fTab;
 		}
 		return Fragments.fDetail;
 	}
@@ -97,9 +99,7 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	public void onHomeClick() {
-		Fragments.releaseFragments();
-		oneTimeRun = false;
-		finish();
+
 	}
 
 	@Override

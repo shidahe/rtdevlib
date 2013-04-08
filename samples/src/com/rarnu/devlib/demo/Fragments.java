@@ -20,6 +20,7 @@ import com.rarnu.devlib.demo.fragment.RunFragment;
 import com.rarnu.devlib.demo.fragment.SlideContentFragment;
 import com.rarnu.devlib.demo.fragment.SlideMenuFragment;
 import com.rarnu.devlib.demo.fragment.SlideSecondMenuFragment;
+import com.rarnu.devlib.demo.fragment.TabFragment;
 import com.rarnu.devlib.demo.fragment.UIFragment;
 import com.rarnu.devlib.demo.fragment.VScrollFragment;
 
@@ -47,6 +48,7 @@ public class Fragments {
 	public static SlideContentFragment fSlideContent = null;
 	public static SlideSecondMenuFragment fSlideSecondMenu = null;
 	public static FloatWindowFragment fFloatWindow = null;
+	public static TabFragment fTab = null;
 
 	public static void loadFragments() {
 		fIndex = new IndexFragment();
@@ -71,6 +73,7 @@ public class Fragments {
 		fSlideContent = new SlideContentFragment();
 		fSlideSecondMenu = new SlideSecondMenuFragment();
 		fFloatWindow = new FloatWindowFragment();
+		fTab = new TabFragment();
 	}
 
 	public static void releaseFragments() {
@@ -96,5 +99,6 @@ public class Fragments {
 		fSlideContent = null;
 		fSlideSecondMenu = null;
 		fFloatWindow = null;
+		fTab = null;
 	}
 }

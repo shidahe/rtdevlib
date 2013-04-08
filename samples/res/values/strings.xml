@@ -35,6 +35,8 @@
     <string name="run_name_with_path">MainActivity &gt; RunFragment</string>
     <string name="float_window_name">FloatWindow</string>
     <string name="float_window_name_with_path">MainActivity &gt; FloatWindow</string>
+    <string name="tab_name">TabFragment</string>
+    <string name="tab_name_with_path">MainActivity &gt; TabFragment</string>
     
     <string name="test_cat_1">Fragment</string>
     <string name="test_cat_2">Base.Impl</string>
@@ -57,6 +59,7 @@
     <string name="item_3_4">PullDownListView</string>
     <string name="item_3_5">SlideMenu</string>
     <string name="item_3_6">FloatWindow</string>
+    <string name="item_3_7">Tab</string>
     
     <string name="item_4_1">Device</string>
     <string name="item_4_2">Download</string>
