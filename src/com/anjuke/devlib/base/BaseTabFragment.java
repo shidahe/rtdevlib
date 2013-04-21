@@ -37,7 +37,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	}
 
 	public void addTab(int position, BaseFragment fragment) {
-		
+
 		if (listFragment.indexOf(fragment) == -1) {
 			Tab t = bar.newTab().setText(fragment.getTabTitle())
 					.setTabListener(this);
@@ -48,9 +48,11 @@ public abstract class BaseTabFragment extends InnerFragment implements
 				listFragment.add(position, fragment);
 				bar.addTab(t, position);
 			}
-			adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
+			adapter = new BaseFragmentAdapter(getFragmentManager(),
+					listFragment);
 			pager.setAdapter(adapter);
-			int newPosition = (position == -1 ? listFragment.size() - 1: position);
+			int newPosition = (position == -1 ? listFragment.size() - 1
+					: position);
 			pager.setCurrentItem(newPosition);
 		}
 	}
@@ -60,7 +62,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		listFragment.remove(position);
 		bar.removeTabAt(position);
 		newPosition--;
-		if (newPosition<0) {
+		if (newPosition < 0) {
 			newPosition = 0;
 		}
 		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
@@ -99,7 +101,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 
 	}
-	
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -133,6 +135,11 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		currentPage = position;
 		bar.setSelectedNavigationItem(position);
 
+	}
+
+	public void setTabPosition(int position) {
+		bar.setSelectedNavigationItem(position);
+		pager.setCurrentItem(position);
 	}
 
 }
