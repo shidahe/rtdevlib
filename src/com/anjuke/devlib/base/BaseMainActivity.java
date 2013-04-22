@@ -1,5 +1,6 @@
 package com.anjuke.devlib.base;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -38,6 +39,15 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 		}
 		loadUI();
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (!GlobalInstance.dualPane) {
+			getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		}
+	}
+
 
 	@Override
 	protected void onDestroy() {
@@ -62,6 +72,7 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 		View vDetail = findViewById(R.id.fragmentDetail);
 		GlobalInstance.dualPane = vDetail != null
 				&& vDetail.getVisibility() == View.VISIBLE;
+		
 		getActionBar().setTitle(getBarTitle());
 		setDualPane();
 	}

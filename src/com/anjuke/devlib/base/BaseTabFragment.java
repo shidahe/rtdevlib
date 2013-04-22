@@ -10,6 +10,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.base.inner.InnerFragment;
@@ -30,14 +31,14 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		adapter = null;
 		listFragment = null;
 		pager.post(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pager.setAdapter(null);
-				
+
 			}
 		});
-		
+
 		super.onDestroyView();
 	}
 
@@ -51,13 +52,13 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		listFragment = new ArrayList<Fragment>();
 		initFragmentList(listFragment);
 		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
-		
+
 		pager.post(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pager.setAdapter(adapter);
-				
+
 			}
 		});
 
@@ -76,11 +77,11 @@ public abstract class BaseTabFragment extends InnerFragment implements
 				listFragment.add(position, fragment);
 				bar.addTab(t, position);
 			}
-			
+
 			adapter = new BaseFragmentAdapter(getFragmentManager(),
 					listFragment);
 			pager.post(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					pager.setAdapter(adapter);
@@ -89,7 +90,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 					pager.setCurrentItem(newPosition);
 				}
 			});
-			
+
 		}
 	}
 
@@ -104,14 +105,13 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		final int nPos = newPosition;
 		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
 		pager.post(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pager.setAdapter(adapter);
 				pager.setCurrentItem(nPos);
 			}
 		});
-		
 
 	}
 
@@ -164,13 +164,13 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		if (pager.getCurrentItem() != tab.getPosition()) {
 			currentPage = tab.getPosition();
 			pager.post(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					pager.setCurrentItem(tab.getPosition());
-					
+
 				}
-			});	
+			});
 		}
 
 	}
@@ -200,14 +200,14 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	public void setTabPosition(final int position) {
 		bar.setSelectedNavigationItem(position);
 		pager.post(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pager.setCurrentItem(position);
-				
+
 			}
 		});
-		
+
 	}
 
 }
