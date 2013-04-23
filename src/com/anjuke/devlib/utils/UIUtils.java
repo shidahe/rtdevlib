@@ -17,8 +17,11 @@ import com.anjuke.devlib.R;
 
 public class UIUtils {
 
+	public static final int ACTIONBAR_HEIGHT = android.R.attr.actionBarSize;
+	
 	private static Context context = null;
 	private static DisplayMetrics dm = null;
+	private static boolean followSystemBackground = true;
 
 	public static DisplayMetrics getDM() {
 		return dm;
@@ -28,14 +31,14 @@ public class UIUtils {
 		return dm.density;
 	}
 
-	public static void initDisplayMetrics(Context ctx, WindowManager wm) {
+	public static void initDisplayMetrics(Context ctx, WindowManager wm, boolean isFollowSystemBackground) {
 		if (context == null) {
 			context = ctx;
 		}
 
 		dm = new DisplayMetrics();
 		wm.getDefaultDisplay().getMetrics(dm);
-
+		followSystemBackground = isFollowSystemBackground;
 	}
 
 	public static boolean touchInDialog(Activity activity, MotionEvent e) {
@@ -308,9 +311,17 @@ public class UIUtils {
 	
 	public static int getActionBarHeight() {
 		TypedArray a = context
-				.obtainStyledAttributes(new int[] { android.R.attr.actionBarSize });
+				.obtainStyledAttributes(new int[] { ACTIONBAR_HEIGHT });
 		int ret = a.getDimensionPixelSize(0, -1);
 		a.recycle();
 		return ret;
+	}
+	
+	public static boolean isFollowSystemBackground() {
+		return followSystemBackground;
+	}
+
+	public static void setFollowSystemBackground(boolean isFollowSystemBackground) {
+		followSystemBackground = isFollowSystemBackground;
 	}
 }

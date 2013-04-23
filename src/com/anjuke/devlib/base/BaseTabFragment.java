@@ -10,7 +10,6 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.base.inner.InnerFragment;

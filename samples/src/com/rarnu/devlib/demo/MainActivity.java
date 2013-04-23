@@ -10,6 +10,7 @@ import android.widget.ShareActionProvider;
 import com.anjuke.devlib.base.BaseMainActivity;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.utils.NetworkUtils;
+import com.anjuke.devlib.utils.UIUtils;
 
 public class MainActivity extends BaseMainActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		UIUtils.initDisplayMetrics(this, getWindowManager(), true);
 		GlobalInstance.init(this, true);
 		super.onCreate(savedInstanceState);
 	}

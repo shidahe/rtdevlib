@@ -6,12 +6,15 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.FrameLayout;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.base.inner.InnerActivity;
 import com.anjuke.devlib.common.ISliding;
 import com.anjuke.devlib.component.SlidingMenu;
+import com.anjuke.devlib.utils.DrawableUtils;
 import com.anjuke.devlib.utils.SlidingHelper;
+import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class BaseSlidingActivity extends InnerActivity implements
 		ISliding {
@@ -53,6 +56,11 @@ public abstract class BaseSlidingActivity extends InnerActivity implements
 		super.onCreate(savedInstanceState);
 		setBehindContentView(R.layout.layout_menu_replacement);
 
+		((FrameLayout) findViewById(R.id.menu)).setBackgroundDrawable(UIUtils
+				.isFollowSystemBackground() ? DrawableUtils
+				.getSystemAttrDrawable(this,
+						DrawableUtils.DETAILS_ELEMENT_BACKGROUND) : null);
+
 		replaceMenu();
 
 		SlidingMenu sm = getSlidingMenu();
@@ -65,6 +73,11 @@ public abstract class BaseSlidingActivity extends InnerActivity implements
 		sm.setMode(getSlideMode());
 		if (sm.getMode() == SlidingMenu.LEFT_RIGHT) {
 			sm.setSecondaryMenu(R.layout.layout_second_menu_replacement);
+			((FrameLayout) findViewById(R.id.second_menu))
+					.setBackgroundDrawable(UIUtils.isFollowSystemBackground() ? DrawableUtils
+							.getSystemAttrDrawable(this,
+									DrawableUtils.DETAILS_ELEMENT_BACKGROUND)
+							: null);
 			sm.setSecondaryShadowDrawable(R.drawable.shadow);
 			replaceSecondMenu();
 		}

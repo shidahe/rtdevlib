@@ -6,6 +6,11 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.RelativeLayout;
+
+import com.anjuke.devlib.R;
+import com.anjuke.devlib.utils.DrawableUtils;
+import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class InnerActivity extends Activity {
 
@@ -22,6 +27,12 @@ public abstract class InnerActivity extends Activity {
 		}
 
 		setContentView(getBaseLayout());
+		
+		((RelativeLayout) findViewById(R.id.layoutReplacement))
+		.setBackgroundDrawable(UIUtils.isFollowSystemBackground() ? DrawableUtils
+				.getSystemAttrDrawable(this,
+						DrawableUtils.DETAILS_ELEMENT_BACKGROUND)
+				: null);
 
 		bar = getActionBar();
 		if (bar != null) {

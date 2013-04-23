@@ -9,14 +9,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.common.IFragments;
+import com.anjuke.devlib.utils.DrawableUtils;
 import com.anjuke.devlib.utils.NetworkUtils;
 import com.anjuke.devlib.utils.UIUtils;
 
@@ -27,7 +31,6 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-		UIUtils.initDisplayMetrics(this, getWindowManager());
 		super.onCreate(savedInstanceState);
 		registerReceiver(receiverHome, filterHome);
 
@@ -72,6 +75,20 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 		View vDetail = findViewById(R.id.fragmentDetail);
 		GlobalInstance.dualPane = vDetail != null
 				&& vDetail.getVisibility() == View.VISIBLE;
+		
+		Drawable dSysBackground = DrawableUtils.getSystemAttrDrawable(this,
+				DrawableUtils.DETAILS_ELEMENT_BACKGROUND);
+		Drawable dBackground = (UIUtils.isFollowSystemBackground() ? dSysBackground
+				: null);
+		if (GlobalInstance.dualPane) {
+			((FrameLayout) findViewById(R.id.fragmentMain))
+					.setBackgroundDrawable(dBackground);
+			((FrameLayout) findViewById(R.id.fragmentDetail))
+					.setBackgroundDrawable(dBackground);
+		} else {
+			((LinearLayout) findViewById(R.id.layoutMain))
+					.setBackgroundDrawable(dBackground);
+		}
 		
 		getActionBar().setTitle(getBarTitle());
 		setDualPane();
