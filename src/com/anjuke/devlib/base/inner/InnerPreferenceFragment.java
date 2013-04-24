@@ -6,9 +6,32 @@ import android.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.common.GlobalInstance;
 
-public abstract class InnerPreferenceFragment extends PreferenceFragment {
+public abstract class InnerPreferenceFragment extends PreferenceFragment implements InnerIntf{
+	
+	protected String tagText;
+	protected String tabTitle;
+
+	@Override
+	public String getTagText() {
+		return tagText;
+	}
+
+	public String getTabTitle() {
+		return tabTitle;
+	}
+	
+	public InnerPreferenceFragment() {
+		super();
+	}
+	
+	public InnerPreferenceFragment(String tagText, String tabTitle) {
+		super();
+		this.tagText = tagText;
+		this.tabTitle = tabTitle;
+	}
 	
 	@Override
 	public void onAttach(Activity activity) {

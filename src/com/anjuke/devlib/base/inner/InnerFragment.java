@@ -9,9 +9,10 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.common.GlobalInstance;
 
-public abstract class InnerFragment extends Fragment {
+public abstract class InnerFragment extends Fragment implements InnerIntf{
 
 	protected View innerView = null;
 	protected Bundle innerBundle = null;
@@ -19,6 +20,7 @@ public abstract class InnerFragment extends Fragment {
 	protected String tagText;
 	protected String tabTitle;
 
+	@Override
 	public String getTagText() {
 		return tagText;
 	}
