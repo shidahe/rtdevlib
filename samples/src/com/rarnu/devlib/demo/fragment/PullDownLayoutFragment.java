@@ -37,12 +37,12 @@ public class PullDownLayoutFragment extends BaseFragment implements
 	};
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.pulldown_layout_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.pulldown_layout_name_with_path;
 	}
 
@@ -110,6 +110,11 @@ public class PullDownLayoutFragment extends BaseFragment implements
 				hUpdate.sendMessage(msg);
 			}
 		}).start();
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

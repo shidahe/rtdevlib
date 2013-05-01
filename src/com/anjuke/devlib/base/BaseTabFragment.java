@@ -21,22 +21,40 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	private ViewPager pager;
 	private BaseFragmentAdapter adapter;
 	private List<Fragment> listFragment;
+	private List<String> listTags;
 	private int currentPage = 0;
+	private boolean needRelease = true;
+
+	public BaseTabFragment(boolean needRelease) {
+		super();
+		this.needRelease = needRelease;
+	}
+	
+	public BaseTabFragment() {
+		super();
+	}
+
+	public BaseTabFragment(String tagText, String tabTitle) {
+		super(tagText, tabTitle);
+	}
 
 	@Override
 	public void onDestroyView() {
-		bar.removeAllTabs();
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		adapter = null;
-		listFragment = null;
-		pager.post(new Runnable() {
+		if (needRelease) {
+			bar.removeAllTabs();
+			bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+			adapter = null;
+			listFragment = null;
+			listTags = null;
+			pager.post(new Runnable() {
 
-			@Override
-			public void run() {
-				pager.setAdapter(null);
+				@Override
+				public void run() {
+					pager.setAdapter(null);
 
-			}
-		});
+				}
+			});
+		}
 
 		super.onDestroyView();
 	}
@@ -49,8 +67,13 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		pager = (ViewPager) innerView.findViewById(R.id.pager);
 		pager.setOffscreenPageLimit(3);
 		listFragment = new ArrayList<Fragment>();
+		listTags = new ArrayList<String>();
 		initFragmentList(listFragment);
-		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
+		for (Fragment bf: listFragment) {
+			listTags.add(((BaseFragment)bf).getTagText());
+		}
+		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment,
+				listTags);
 
 		pager.post(new Runnable() {
 
@@ -71,14 +94,16 @@ public abstract class BaseTabFragment extends InnerFragment implements
 					.setTabListener(this);
 			if (position == -1) {
 				listFragment.add(fragment);
+				listTags.add(fragment.getTagText());
 				bar.addTab(t);
 			} else {
 				listFragment.add(position, fragment);
+				listTags.add(position, fragment.getTagText());
 				bar.addTab(t, position);
 			}
 
 			adapter = new BaseFragmentAdapter(getFragmentManager(),
-					listFragment);
+					listFragment, listTags);
 			pager.post(new Runnable() {
 
 				@Override
@@ -96,13 +121,15 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	public void removeTab(int position) {
 		int newPosition = position;
 		listFragment.remove(position);
+		listTags.remove(position);
 		bar.removeTabAt(position);
 		newPosition--;
 		if (newPosition < 0) {
 			newPosition = 0;
 		}
 		final int nPos = newPosition;
-		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment);
+		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment,
+				listTags);
 		pager.post(new Runnable() {
 
 			@Override

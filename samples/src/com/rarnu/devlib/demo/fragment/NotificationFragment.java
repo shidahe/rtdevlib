@@ -20,12 +20,12 @@ public class NotificationFragment extends BaseFragment implements
 	CheckBox chkCanClose;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.notification_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.notification_name_with_path;
 	}
 
@@ -87,6 +87,11 @@ public class NotificationFragment extends BaseFragment implements
 			break;
 		}
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

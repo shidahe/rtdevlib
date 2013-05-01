@@ -15,12 +15,12 @@ public class SlideContentFragment extends BaseFragment {
 	MenuItem itemBack;
 	
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.slidemenu_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.slidemenu_name;
 	}
 
@@ -72,6 +72,11 @@ public class SlideContentFragment extends BaseFragment {
 	protected void onGetNewArguments(Bundle bn) {
 		tvText.setText(bn.getString("text"));
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

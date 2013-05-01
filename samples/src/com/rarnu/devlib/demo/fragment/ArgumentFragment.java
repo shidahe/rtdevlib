@@ -20,12 +20,12 @@ public class ArgumentFragment extends BaseFragment implements OnClickListener {
 	MenuItem itemAction;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.argument_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.argument_name_with_path;
 	}
 
@@ -88,6 +88,11 @@ public class ArgumentFragment extends BaseFragment implements OnClickListener {
 	protected void onGetNewArguments(Bundle bn) {
 		String key = bn.getString("key");
 		tvFragmentId.setText(key);
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

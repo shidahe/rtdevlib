@@ -14,12 +14,12 @@ public class NetworkFragment extends BaseFragment {
 	TextView tvNetwork;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.network_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.network_name_with_path;
 	}
 
@@ -57,6 +57,11 @@ public class NetworkFragment extends BaseFragment {
 	@Override
 	protected void onGetNewArguments(Bundle bn) {
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

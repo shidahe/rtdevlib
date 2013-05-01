@@ -54,4 +54,16 @@ public class SlideActivity extends BaseSlidingActivity {
 		return Fragments.fSlideSecondMenu;
 	}
 
+	@Override
+	public void loadFragments() {
+
+		
+	}
+
+	@Override
+	public void releaseFragments() {
+
+		
+	}
+
 }

@@ -10,12 +10,12 @@ import com.rarnu.devlib.demo.R;
 public class PopupFragment extends BasePopupFragment {
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.popup_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.popup_name;
 	}
 
@@ -52,6 +52,11 @@ public class PopupFragment extends BasePopupFragment {
 	@Override
 	protected void onGetNewArguments(Bundle bn) {
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

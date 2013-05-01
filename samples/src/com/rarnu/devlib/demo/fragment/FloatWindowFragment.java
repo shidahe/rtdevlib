@@ -18,12 +18,12 @@ public class FloatWindowFragment extends BaseFragment implements
 	Button btnShowFloatWindow, btnHideFloatWindow;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.float_window_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.float_window_name_with_path;
 	}
 
@@ -81,6 +81,11 @@ public class FloatWindowFragment extends BaseFragment implements
 			break;
 		}
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

@@ -14,12 +14,12 @@ public class DeviceFragment extends BaseFragment {
 	TextView tvDevice;
 	
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.device_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.device_name_with_path;
 	}
 
@@ -58,6 +58,11 @@ public class DeviceFragment extends BaseFragment {
 	@Override
 	protected void onGetNewArguments(Bundle bn) {
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

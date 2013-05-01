@@ -3,8 +3,6 @@ package com.anjuke.devlib.base;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,10 +16,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.anjuke.devlib.R;
+import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.utils.DrawableUtils;
-import com.anjuke.devlib.utils.NetworkUtils;
 import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class BaseMainActivity extends Activity implements IFragments {
@@ -42,26 +40,25 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 		}
 		loadUI();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
 		if (!GlobalInstance.dualPane) {
-			getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+			getActionBar()
+					.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		}
 	}
 
-
 	@Override
 	protected void onDestroy() {
+		unregisterReceiver(receiverHome);
 		releaseFragments();
 		oneTimeRun = false;
-		unregisterReceiver(receiverHome);
 		super.onDestroy();
 	}
 
 	private void initOneTime() {
-		loadNetworkStatus();
 		initOnce();
 	}
 
@@ -71,11 +68,12 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 
 	private void loadUI() {
 		setContentView(R.layout.layout_main);
+
 		replaceIndexFragment();
 		View vDetail = findViewById(R.id.fragmentDetail);
 		GlobalInstance.dualPane = vDetail != null
 				&& vDetail.getVisibility() == View.VISIBLE;
-		
+
 		Drawable dSysBackground = DrawableUtils.getSystemAttrDrawable(this,
 				DrawableUtils.DETAILS_ELEMENT_BACKGROUND);
 		Drawable dBackground = (UIUtils.isFollowSystemBackground() ? dSysBackground
@@ -89,7 +87,7 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 			((LinearLayout) findViewById(R.id.layoutMain))
 					.setBackgroundDrawable(dBackground);
 		}
-		
+
 		getActionBar().setTitle(getBarTitle());
 		setDualPane();
 	}
@@ -105,20 +103,17 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 	public abstract Fragment getIndexFragment();
 
 	private void replaceIndexFragment() {
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager
-				.beginTransaction();
-		fragmentTransaction.replace(R.id.fragmentMain, getIndexFragment());
-		fragmentTransaction.commit();
+		Fragment fIndex = getIndexFragment();
+		getFragmentManager()
+				.beginTransaction()
+				.replace(R.id.fragmentMain, fIndex,
+						((InnerIntf) fIndex).getTagText()).commit();
 	}
 
 	private void replaceDetailFragment(Fragment f) {
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fragmentTransaction = fragmentManager
-				.beginTransaction();
-		fragmentTransaction.replace(R.id.fragmentDetail, f);
-		fragmentTransaction.show(f);
-		fragmentTransaction.commit();
+		getFragmentManager().beginTransaction()
+				.replace(R.id.fragmentDetail, f, ((InnerIntf) f).getTagText())
+				.commit();
 	}
 
 	@Override
@@ -128,21 +123,6 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 	}
 
 	public abstract void initMenu(Menu menu);
-
-	private void loadNetworkStatus() {
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				GlobalInstance.loadingNetwork = true;
-				GlobalInstance.networkInfo = NetworkUtils
-						.getNetworkInfo(BaseMainActivity.this);
-				GlobalInstance.networkSpeed = NetworkUtils
-						.testNetworkSpeed(BaseMainActivity.this);
-				GlobalInstance.loadingNetwork = false;
-			}
-		}).start();
-	}
 
 	public abstract void onHomeClick();
 
@@ -168,9 +148,7 @@ public abstract class BaseMainActivity extends Activity implements IFragments {
 					}
 				}
 			}
-
 		}
-
 	}
 
 	public HomeReceiver receiverHome = new HomeReceiver();

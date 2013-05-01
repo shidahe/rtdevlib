@@ -281,4 +281,9 @@ public class IndexFragment extends BasePreferenceFragment implements
 		super.onPause();
 	}
 
+	@Override
+	protected String getCustomTitle() {
+		return null;
+	}
+
 }

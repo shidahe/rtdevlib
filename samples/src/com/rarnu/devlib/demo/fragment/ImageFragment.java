@@ -22,12 +22,12 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 	Bitmap bmpOrigin, bmpChanged;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.image_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.image_name_with_path;
 	}
 
@@ -105,6 +105,11 @@ public class ImageFragment extends BaseFragment implements OnClickListener {
 			break;
 		}
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

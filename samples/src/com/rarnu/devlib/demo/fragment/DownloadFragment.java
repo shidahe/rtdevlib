@@ -24,12 +24,12 @@ public class DownloadFragment extends BaseFragment implements OnClickListener {
 	Button btnDownload;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.download_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.download_name_with_path;
 	}
 
@@ -100,6 +100,11 @@ public class DownloadFragment extends BaseFragment implements OnClickListener {
 		DownloadUtils.downloadFileT(getActivity(), iv, url, localDir,
 				localFile, hProgress);
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

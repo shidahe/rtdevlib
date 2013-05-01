@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.base.inner.InnerActivity;
+import com.anjuke.devlib.base.intf.InnerIntf;
+import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.common.ISliding;
 import com.anjuke.devlib.component.SlidingMenu;
 import com.anjuke.devlib.utils.DrawableUtils;
@@ -17,7 +19,7 @@ import com.anjuke.devlib.utils.SlidingHelper;
 import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class BaseSlidingActivity extends InnerActivity implements
-		ISliding {
+		ISliding, IFragments {
 
 	private SlidingHelper mHelper;
 
@@ -53,6 +55,8 @@ public abstract class BaseSlidingActivity extends InnerActivity implements
 		mHelper = new SlidingHelper(this);
 		mHelper.onCreate(savedInstanceState);
 
+		loadFragments();
+
 		super.onCreate(savedInstanceState);
 		setBehindContentView(R.layout.layout_menu_replacement);
 
@@ -83,14 +87,24 @@ public abstract class BaseSlidingActivity extends InnerActivity implements
 		}
 	}
 
+	@Override
+	protected void onDestroy() {
+		releaseFragments();
+		super.onDestroy();
+	}
+
 	public void replaceMenu() {
+		Fragment bf = replaceMenuFragment();
 		getFragmentManager().beginTransaction()
-				.replace(R.id.menu, replaceMenuFragment()).commit();
+				.replace(R.id.menu, bf, ((InnerIntf) bf).getTagText())
+				.commit();
 	}
 
 	public void replaceSecondMenu() {
-		getFragmentManager().beginTransaction()
-				.replace(R.id.second_menu, replaceSecondMenuFragment())
+		Fragment bf = replaceSecondMenuFragment();
+		getFragmentManager()
+				.beginTransaction()
+				.replace(R.id.second_menu, bf, ((InnerIntf) bf).getTagText())
 				.commit();
 	}
 

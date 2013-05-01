@@ -17,12 +17,12 @@ public class UIFragment extends BaseFragment {
 	Button btn1, btn2, btn3;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.ui_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.ui_name_with_path;
 	}
 
@@ -85,6 +85,11 @@ public class UIFragment extends BaseFragment {
 	@Override
 	protected void onGetNewArguments(Bundle bn) {
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

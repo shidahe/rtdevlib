@@ -1,5 +1,7 @@
 package com.anjuke.devlib.base.inner;
 
+import java.util.List;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -13,9 +15,11 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 	private final FragmentManager mFragmentManager;
 	private FragmentTransaction mCurTransaction = null;
 	private Fragment mCurrentPrimaryItem = null;
+	private List<String> mListTags = null;
 
-	public FragmentPagerAdapter(FragmentManager fm) {
+	public FragmentPagerAdapter(FragmentManager fm, List<String> tags) {
 		mFragmentManager = fm;
+		this.mListTags = tags;
 	}
 
 	public abstract Fragment getItem(int position);
@@ -29,19 +33,13 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 		if (mCurTransaction == null) {
 			mCurTransaction = mFragmentManager.beginTransaction();
 		}
-
-		final long itemId = getItemId(position);
-
-		String name = makeFragmentName(container.getId(), itemId);
+		String name = mListTags.get(position);
 		Fragment fragment = mFragmentManager.findFragmentByTag(name);
 		if (fragment != null) {
-
 			mCurTransaction.attach(fragment);
 		} else {
 			fragment = getItem(position);
-
-			mCurTransaction.add(container.getId(), fragment,
-					makeFragmentName(container.getId(), itemId));
+			mCurTransaction.add(container.getId(), fragment, name);
 		}
 		if (fragment != mCurrentPrimaryItem) {
 			fragment.setMenuVisibility(false);
@@ -104,9 +102,5 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 
 	public long getItemId(int position) {
 		return position;
-	}
-
-	private static String makeFragmentName(int viewId, long id) {
-		return "android:switcher:" + viewId + ":" + id;
 	}
 }

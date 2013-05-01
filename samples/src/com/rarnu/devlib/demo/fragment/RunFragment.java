@@ -27,12 +27,12 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 	TermSession session;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.run_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.run_name_with_path;
 	}
 
@@ -98,5 +98,10 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 	@Override
 	public void onReceiveData(String data) {
 		Log.e("onReceiveData", data);
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 }

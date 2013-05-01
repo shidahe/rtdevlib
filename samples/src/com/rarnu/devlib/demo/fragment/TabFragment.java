@@ -17,12 +17,12 @@ public class TabFragment extends BaseTabFragment {
 	MenuItem itemAdd, itemRemove;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.tab_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.tab_name_with_path;
 	}
 
@@ -68,6 +68,11 @@ public class TabFragment extends BaseTabFragment {
 		listFragment.add(new TabViewFragment("Fragment 4", "Tab 4"));
 		listFragment.add(new TabViewFragment("Fragment 5", "Tab 5"));
 		
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

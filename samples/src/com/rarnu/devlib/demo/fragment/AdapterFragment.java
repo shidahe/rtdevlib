@@ -29,12 +29,12 @@ public class AdapterFragment extends BaseFragment implements
 	MenuItem itemSearch;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.adapter_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.adapter_name_with_path;
 	}
 
@@ -103,6 +103,11 @@ public class AdapterFragment extends BaseFragment implements
 			adapter.filter(newText);
 		}
 		return true;
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

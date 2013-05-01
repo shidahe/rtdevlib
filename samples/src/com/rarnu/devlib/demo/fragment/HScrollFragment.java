@@ -28,12 +28,12 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	List<View> views;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.scroll_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.scroll_name_with_path;
 	}
 
@@ -117,6 +117,11 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	public void onPageSelected(int position) {
 		evpPoint.setPoint(position);
 		
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

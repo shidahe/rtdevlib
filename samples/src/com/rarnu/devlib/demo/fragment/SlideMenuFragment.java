@@ -72,4 +72,9 @@ public class SlideMenuFragment extends BasePreferenceFragment implements
 		return true;
 	}
 
+	@Override
+	protected String getCustomTitle() {
+		return null;
+	}
+
 }

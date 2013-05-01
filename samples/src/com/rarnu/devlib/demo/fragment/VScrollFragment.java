@@ -10,12 +10,12 @@ import com.rarnu.devlib.demo.R;
 public class VScrollFragment extends BaseFragment {
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.scroll_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.scroll_name_with_path;
 	}
 
@@ -55,6 +55,11 @@ public class VScrollFragment extends BaseFragment {
 	@Override
 	protected void onGetNewArguments(Bundle bn) {
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

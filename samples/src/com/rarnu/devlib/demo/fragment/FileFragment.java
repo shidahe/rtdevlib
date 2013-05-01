@@ -20,12 +20,12 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 	TextView tvText;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.file_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.file_name_with_path;
 	}
 
@@ -98,6 +98,11 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 			break;
 		}
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

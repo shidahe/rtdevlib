@@ -23,12 +23,12 @@ public class HttpRequestFragment extends BaseFragment implements
 	TextView tvResult;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.http_request_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.http_request_name_with_path;
 	}
 
@@ -97,6 +97,11 @@ public class HttpRequestFragment extends BaseFragment implements
 			}
 		}).start();
 
+	}
+
+	@Override
+	public String getCustomTitle() {
+		return null;
 	}
 
 }

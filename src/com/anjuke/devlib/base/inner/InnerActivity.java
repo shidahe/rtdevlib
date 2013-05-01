@@ -5,16 +5,20 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.widget.RelativeLayout;
 
 import com.anjuke.devlib.R;
+import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.utils.DrawableUtils;
 import com.anjuke.devlib.utils.UIUtils;
 
-public abstract class InnerActivity extends Activity {
+public abstract class InnerActivity extends Activity implements
+		OnGlobalLayoutListener {
 
 	protected ActionBar bar;
+	protected RelativeLayout layoutReplacement;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +31,13 @@ public abstract class InnerActivity extends Activity {
 		}
 
 		setContentView(getBaseLayout());
-		
-		((RelativeLayout) findViewById(R.id.layoutReplacement))
-		.setBackgroundDrawable(UIUtils.isFollowSystemBackground() ? DrawableUtils
+
+		layoutReplacement = (RelativeLayout) findViewById(R.id.layoutReplacement);
+		layoutReplacement.getViewTreeObserver().addOnGlobalLayoutListener(this);
+		layoutReplacement.setBackgroundDrawable(UIUtils
+				.isFollowSystemBackground() ? DrawableUtils
 				.getSystemAttrDrawable(this,
-						DrawableUtils.DETAILS_ELEMENT_BACKGROUND)
-				: null);
+						DrawableUtils.DETAILS_ELEMENT_BACKGROUND) : null);
 
 		bar = getActionBar();
 		if (bar != null) {
@@ -40,12 +45,15 @@ public abstract class InnerActivity extends Activity {
 			bar.setDisplayOptions(0, ActionBar.DISPLAY_HOME_AS_UP);
 			bar.setDisplayHomeAsUpEnabled(true);
 		}
+
 		replace();
 	}
 
 	public void replace() {
+		Fragment bf = replaceFragment();
 		getFragmentManager().beginTransaction()
-				.replace(getReplaceId(), replaceFragment()).commit();
+				.replace(getReplaceId(), bf, ((InnerIntf) bf).getTagText())
+				.commit();
 	}
 
 	public abstract int getIcon();
@@ -66,6 +74,15 @@ public abstract class InnerActivity extends Activity {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onGlobalLayout() {
+		onLayoutReady();
+	}
+
+	protected void onLayoutReady() {
+
 	}
 
 }
