@@ -90,7 +90,7 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 		if (cmd.equals("")) {
 			return;
 		}
-		CommandResult cr = RootUtils.runCommand(cmd, false);
+		CommandResult cr = RootUtils.runCommand(cmd, false, null);
 		String ret = "result$: " + cr.result + "\nerror$: " + cr.error;
 		tvResult.setText(ret);
 	}

@@ -1,8 +1,9 @@
 package com.anjuke.devlib.utils.command;
 
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.InputStreamReader;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -45,7 +46,7 @@ public class RootUtils {
 
 		return ret;
 	}
-	
+
 	private static boolean applicationExists(String packageName) {
 		ApplicationInfo info = null;
 		try {
@@ -67,8 +68,8 @@ public class RootUtils {
 
 	public static boolean isWrongRoot() {
 		// -rwsr-sr-x
-		String suStat = runCommand("ls -l " + SU_PATH, false).result
-				+ runCommand("ls -l " + SU_PATH_X, false).result;
+		String suStat = runCommand("ls -l " + SU_PATH, false, null).result
+				+ runCommand("ls -l " + SU_PATH_X, false, null).result;
 		if (GlobalInstance.DEBUG) {
 			Log.e("suStat", suStat);
 		}
@@ -76,15 +77,17 @@ public class RootUtils {
 				.contains("-rwsr-xr-x")));
 	}
 
-	@SuppressWarnings("deprecation")
-	public static CommandResult runCommand(String command, boolean root) {
+	public static CommandResult runCommand(String command, boolean root,
+			ReadLineCallback callback) {
 		if (GlobalInstance.DEBUG) {
 			Log.e("runRootCommand", command);
 		}
 		Process process = null;
 		DataOutputStream os = null;
-		DataInputStream stdout = null;
-		DataInputStream stderr = null;
+		// DataInputStream stdout = null;
+		// DataInputStream stderr = null;
+		BufferedReader brOut = null;
+		BufferedReader brErr = null;
 		CommandResult ret = new CommandResult();
 		try {
 			StringBuffer output = new StringBuffer();
@@ -98,14 +101,24 @@ public class RootUtils {
 			} else {
 				process = Runtime.getRuntime().exec(command);
 			}
-			stdout = new DataInputStream(process.getInputStream());
+			// stdout = new DataInputStream(process.getInputStream());
 			String line;
-			while ((line = stdout.readLine()) != null) {
+			brOut = new BufferedReader(new InputStreamReader(
+					process.getInputStream()));
+			while ((line = brOut.readLine()) != null) {
 				output.append(line).append('\n');
+				if (callback != null) {
+					callback.onReadLine(line);
+				}
 			}
-			stderr = new DataInputStream(process.getErrorStream());
-			while ((line = stderr.readLine()) != null) {
+			// stderr = new DataInputStream(process.getErrorStream());
+			brErr = new BufferedReader(new InputStreamReader(
+					process.getErrorStream()));
+			while ((line = brErr.readLine()) != null) {
 				error.append(line).append('\n');
+				if (callback != null) {
+					callback.onReadError(line);
+				}
 			}
 			process.waitFor();
 			ret.result = output.toString().trim();
@@ -118,11 +131,17 @@ public class RootUtils {
 				if (os != null) {
 					os.close();
 				}
-				if (stdout != null) {
-					stdout.close();
+				// if (stdout != null) {
+				// stdout.close();
+				// }
+				// if (stderr != null) {
+				// stderr.close();
+				// }
+				if (brOut != null) {
+					brOut.close();
 				}
-				if (stderr != null) {
-					stderr.close();
+				if (brErr != null) {
+					brErr.close();
 				}
 			} catch (Exception e) {
 				ret.result = "";
@@ -171,7 +190,7 @@ public class RootUtils {
 
 	public static String buildMountCommand() {
 		String retstr = "";
-		CommandResult ret = runCommand("mount", false);
+		CommandResult ret = runCommand("mount", false, null);
 		if (ret.error.equals("")) {
 			String[] mt = ret.result.split("\n");
 			for (String m : mt) {
@@ -201,13 +220,14 @@ public class RootUtils {
 
 	public static void mountRW() {
 		String cmd = buildMountCommand();
-		runCommand(cmd, true);
+		runCommand(cmd, true, null);
 	}
-	
+
 	private static boolean isSettingsContainsSU() {
 		boolean ret = false;
 		try {
-			PackageInfo pi = GlobalInstance.pm.getPackageInfo(SETTINGS_PACKAGE, 0);
+			PackageInfo pi = GlobalInstance.pm.getPackageInfo(SETTINGS_PACKAGE,
+					0);
 			String versionName = pi.versionName;
 			versionName = versionName
 					.substring(0, versionName.lastIndexOf("."));
