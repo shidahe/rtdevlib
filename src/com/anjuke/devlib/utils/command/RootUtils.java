@@ -77,6 +77,11 @@ public class RootUtils {
 				.contains("-rwsr-xr-x")));
 	}
 
+	public static CommandResult runCommand(String command, boolean root) {
+		return runCommand(command, root, null);
+
+	}
+
 	public static CommandResult runCommand(String command, boolean root,
 			ReadLineCallback callback) {
 		if (GlobalInstance.DEBUG) {
