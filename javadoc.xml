@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="false" classpath="/home/rarnu/Develop/android-sdk/tools/support/annotations.jar:libs/android-support-v4.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.anjuke.devlib.utils,com.anjuke.devlib.component,com.anjuke.devlib.base,com.anjuke.devlib.utils.command,com.anjuke.devlib.classes,com.anjuke.devlib.dns,com.anjuke.devlib.network,com.anjuke.devlib.dns.record,com.anjuke.devlib.base.inner,com.anjuke.devlib.common,com.anjuke.devlib.base.intf,com.anjuke.devlib.component.event" source="1.6" sourcefiles="gen/com/anjuke/devlib/BuildConfig.java,gen/com/anjuke/devlib/R.java" sourcepath="gen:src" splitindex="true" use="true" version="false">
+            <link href="file:/home/rarnu/Develop/android-sdk/docs/"/>
+        </javadoc>
+    </target>
+</project>
+

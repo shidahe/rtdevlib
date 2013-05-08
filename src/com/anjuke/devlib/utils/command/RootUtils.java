@@ -83,7 +83,7 @@ public class RootUtils {
 	}
 
 	public static CommandResult runCommand(String command, boolean root,
-			ReadLineCallback callback) {
+			CommandCallback callback) {
 		if (GlobalInstance.DEBUG) {
 			Log.e("runRootCommand", command);
 		}
@@ -156,6 +156,9 @@ public class RootUtils {
 		if (GlobalInstance.DEBUG) {
 			Log.e("runRootCommand-Result",
 					String.format("result:%s, error:%s", ret.result, ret.error));
+		}
+		if (callback != null) {
+			callback.onCommandFinish();
 		}
 		return ret;
 	}
