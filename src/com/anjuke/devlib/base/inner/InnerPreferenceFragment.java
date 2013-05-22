@@ -13,6 +13,7 @@ public abstract class InnerPreferenceFragment extends PreferenceFragment
 
 	protected String tagText;
 	protected String tabTitle;
+	protected Bundle innerBundle = null;
 
 	@Override
 	public String getTagText() {
@@ -36,34 +37,22 @@ public abstract class InnerPreferenceFragment extends PreferenceFragment
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		innerBundle = getArguments();
 		initComponents();
 		initEvents();
 		initLogic();
 	}
 
-	protected abstract int getBarTitle();
-
-	protected abstract int getBarTitleWithPath();
-
-	protected abstract String getCustomTitle();
-
-	protected abstract void initComponents();
-
-	protected abstract void initEvents();
-
-	protected abstract void initLogic();
-
-	protected abstract void initMenu(Menu menu);
-
-	protected abstract String getMainActivityName();
-
-	protected abstract int getPreferenceLayoutId();
+	public void setNewArguments(Bundle bn) {
+		innerBundle = getArguments();
+		onGetNewArguments(bn);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
-		addPreferencesFromResource(getPreferenceLayoutId());
+		addPreferencesFromResource(getFragmentLayoutResId());
 
 		if (getActivity().getActionBar() != null) {
 			if (getCustomTitle() == null || getCustomTitle().equals("")) {
@@ -78,18 +67,6 @@ public abstract class InnerPreferenceFragment extends PreferenceFragment
 			}
 		}
 	}
-
-//	@Override
-//	public void onPause() {
-//		if (getActivity().getActionBar() != null) {
-//			if (getCustomTitle() == null || getCustomTitle().equals("")) {
-//				getActivity().getActionBar().setTitle(getBarTitle());
-//			} else {
-//				getActivity().getActionBar().setTitle(getCustomTitle());
-//			}
-//		}
-//		super.onPause();
-//	}
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

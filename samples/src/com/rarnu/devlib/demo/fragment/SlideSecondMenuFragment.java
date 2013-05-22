@@ -17,17 +17,17 @@ public class SlideSecondMenuFragment extends BasePreferenceFragment implements
 	Preference pItem4, pItem5, pItem6;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.slidemenu_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.slidemenu_name;
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		pItem4 = findPreference(getString(R.string.menuid_item_4));
 		pItem5 = findPreference(getString(R.string.menuid_item_5));
 		pItem6 = findPreference(getString(R.string.menuid_item_6));
@@ -35,7 +35,7 @@ public class SlideSecondMenuFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		pItem4.setOnPreferenceClickListener(this);
 		pItem5.setOnPreferenceClickListener(this);
 		pItem6.setOnPreferenceClickListener(this);
@@ -43,23 +43,18 @@ public class SlideSecondMenuFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
-	}
-
-	@Override
-	protected int getPreferenceLayoutId() {
-		return R.xml.second_menu_slide;
 	}
 
 	@Override
@@ -73,7 +68,22 @@ public class SlideSecondMenuFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected String getCustomTitle() {
+	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public int getFragmentLayoutResId() {
+		return R.xml.second_menu_slide;
+	}
+
+	@Override
+	public void onGetNewArguments(Bundle bn) {
+
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

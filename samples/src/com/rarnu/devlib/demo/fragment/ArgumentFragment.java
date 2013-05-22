@@ -30,19 +30,19 @@ public class ArgumentFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		tvFragmentId = (TextView) innerView.findViewById(R.id.tvFragmentId);
 		btnShowId = (Button) innerView.findViewById(R.id.btnShowId);
 
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		btnShowId.setOnClickListener(this);
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		if (innerBundle != null) {
 			String key = getArguments().getString("key");
 			tvFragmentId.setText(key);
@@ -50,17 +50,17 @@ public class ArgumentFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_argument;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 		itemAction = menu.add(0, 2, 99, "Action");
 		itemAction.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		itemAction.setIcon(android.R.drawable.ic_menu_help);
@@ -85,13 +85,18 @@ public class ArgumentFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 		String key = bn.getString("key");
 		tvFragmentId.setText(key);
 	}
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

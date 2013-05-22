@@ -29,7 +29,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		super();
 		this.needRelease = needRelease;
 	}
-	
+
 	public BaseTabFragment() {
 		super();
 	}
@@ -60,7 +60,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		bar = getActivity().getActionBar();
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -69,8 +69,8 @@ public abstract class BaseTabFragment extends InnerFragment implements
 		listFragment = new ArrayList<Fragment>();
 		listTags = new ArrayList<String>();
 		initFragmentList(listFragment);
-		for (Fragment bf: listFragment) {
-			listTags.add(((BaseFragment)bf).getTagText());
+		for (Fragment bf : listFragment) {
+			listTags.add(((BaseFragment) bf).getTagText());
 		}
 		adapter = new BaseFragmentAdapter(getFragmentManager(), listFragment,
 				listTags);
@@ -155,12 +155,12 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		pager.setOnPageChangeListener(this);
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		pager.post(new Runnable() {
 
 			@Override
@@ -172,7 +172,7 @@ public abstract class BaseTabFragment extends InnerFragment implements
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.layout_tab;
 	}
 

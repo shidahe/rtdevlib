@@ -39,7 +39,7 @@ public class AdapterFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		lvAdapter = (ListView) innerView.findViewById(R.id.lvAdapter);
 		list = new ArrayList<String>();
 		adapter = new StringAdapter(getActivity(), list);
@@ -48,27 +48,27 @@ public class AdapterFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		loader.registerListener(0, this);
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		loader.startLoading();
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_adapter;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 		itemSearch = menu.add(0, 3, 98,
 				"Search");
 		itemSearch.setIcon(android.R.drawable.ic_menu_search);
@@ -79,7 +79,7 @@ public class AdapterFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -107,6 +107,11 @@ public class AdapterFragment extends BaseFragment implements
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

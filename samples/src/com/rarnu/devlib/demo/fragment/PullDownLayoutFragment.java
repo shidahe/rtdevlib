@@ -47,7 +47,7 @@ public class PullDownLayoutFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		pdl = (PullDownLayout) innerView.findViewById(R.id.pdl);
 		pdsv = (PullDownScrollView) innerView.findViewById(R.id.pdsv);
 		tvScroll = (TextView) innerView.findViewById(R.id.tvScroll);
@@ -57,13 +57,13 @@ public class PullDownLayoutFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		pdl.setRefreshListener(this);
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		String str = "test test test test test test test test test test ";
 		String text = "";
 		for (int i = 0; i < 50; i++) {
@@ -73,22 +73,22 @@ public class PullDownLayoutFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_pulldown_layout;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -114,6 +114,11 @@ public class PullDownLayoutFragment extends BaseFragment implements
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

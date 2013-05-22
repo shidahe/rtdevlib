@@ -30,7 +30,7 @@ public class NotificationFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		btnShowNotification = (Button) innerView
 				.findViewById(R.id.btnShowNotification);
 		btnHideNotification = (Button) innerView
@@ -39,34 +39,34 @@ public class NotificationFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		btnShowNotification.setOnClickListener(this);
 		btnHideNotification.setOnClickListener(this);
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_notification;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -91,6 +91,11 @@ public class NotificationFragment extends BaseFragment implements
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

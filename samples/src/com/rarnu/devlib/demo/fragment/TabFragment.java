@@ -27,12 +27,12 @@ public class TabFragment extends BaseTabFragment {
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 		itemAdd = menu.add(0, 1, 99, "Add");
 		itemAdd.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		itemRemove = menu.add(0, 2, 100, "Remove");
@@ -56,7 +56,7 @@ public class TabFragment extends BaseTabFragment {
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -72,6 +72,11 @@ public class TabFragment extends BaseTabFragment {
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

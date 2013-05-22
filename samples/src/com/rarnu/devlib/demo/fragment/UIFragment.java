@@ -27,7 +27,7 @@ public class UIFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		tv40 = (TextView) innerView.findViewById(R.id.tv40);
 		tv60 = (TextView) innerView.findViewById(R.id.tv60);
 		tv80 = (TextView) innerView.findViewById(R.id.tv80);
@@ -37,12 +37,12 @@ public class UIFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		int btnWidth = 0;
 		if (GlobalInstance.dualPane) {
 			UIUtils.setViewPercentXByFrame(tv40, 40, 55);
@@ -68,27 +68,32 @@ public class UIFragment extends BaseFragment {
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_ui;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

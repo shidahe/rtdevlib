@@ -18,7 +18,7 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		UIUtils.initDisplayMetrics(this, getWindowManager(), true);
+		UIUtils.initDisplayMetrics(this, getWindowManager(), false);
 		GlobalInstance.init(this, true);
 		super.onCreate(savedInstanceState);
 	}

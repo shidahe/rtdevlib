@@ -33,39 +33,39 @@ public class HttpRequestFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		btnRequest = (Button) innerView.findViewById(R.id.btnRequest);
 		tvResult = (TextView) innerView.findViewById(R.id.tvResult);
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		btnRequest.setOnClickListener(this);
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_http_request;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -101,6 +101,11 @@ public class HttpRequestFragment extends BaseFragment implements
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

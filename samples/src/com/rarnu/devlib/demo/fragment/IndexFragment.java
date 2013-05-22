@@ -48,17 +48,17 @@ public class IndexFragment extends BasePreferenceFragment implements
 	MutaxReceiver mutax;
 
 	@Override
-	protected int getBarTitle() {
+	public int getBarTitle() {
 		return R.string.app_name;
 	}
 
 	@Override
-	protected int getBarTitleWithPath() {
+	public int getBarTitleWithPath() {
 		return R.string.app_name;
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 
 		mutax = new MutaxReceiver("com.devlib.service", null, null);
 
@@ -93,7 +93,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 
 		mutax.setOnReceiveMessage(this);
 
@@ -127,23 +127,18 @@ public class IndexFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
-	}
-
-	@Override
-	protected int getPreferenceLayoutId() {
-		return R.xml.main;
 	}
 
 	@Override
@@ -282,7 +277,22 @@ public class IndexFragment extends BasePreferenceFragment implements
 	}
 
 	@Override
-	protected String getCustomTitle() {
+	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public int getFragmentLayoutResId() {
+		return R.xml.main;
+	}
+
+	@Override
+	public void onGetNewArguments(Bundle bn) {
+
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

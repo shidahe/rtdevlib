@@ -30,7 +30,7 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		btnWrite = (Button) innerView.findViewById(R.id.btnWrite);
 		btnRead = (Button) innerView.findViewById(R.id.btnRead);
 		btnReadAssets = (Button) innerView.findViewById(R.id.btnReadAssets);
@@ -38,7 +38,7 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		btnWrite.setOnClickListener(this);
 		btnRead.setOnClickListener(this);
 		btnReadAssets.setOnClickListener(this);
@@ -46,27 +46,27 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_file;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -102,6 +102,11 @@ public class FileFragment extends BaseFragment implements OnClickListener {
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

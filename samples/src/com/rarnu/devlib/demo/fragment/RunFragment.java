@@ -37,7 +37,7 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		etCommand = (EditText) innerView.findViewById(R.id.etCommand);
 		btnRun = (Button) innerView.findViewById(R.id.btnRun);
 		tvResult = (TextView) innerView.findViewById(R.id.tvResult);
@@ -47,34 +47,34 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		btnRun.setOnClickListener(this);
 		session.setReturnDataCallback(this);
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		session.write("su\r");
 		session.write("getevent\r");
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_run;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 	
@@ -102,6 +102,11 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 }

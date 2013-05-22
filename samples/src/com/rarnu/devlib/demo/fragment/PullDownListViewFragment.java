@@ -61,7 +61,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		lvPullDown = (PullDownListView) innerView.findViewById(R.id.lvPullDown);
 		list = new ArrayList<String>();
 		adapter = new StringAdapter(getActivity(), list);
@@ -72,34 +72,34 @@ public class PullDownListViewFragment extends BaseFragment implements
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		loader.registerListener(0, this);
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		loader.startLoading();
 		lvPullDown.notifyDidLoad();
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_pulldown_listview;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -153,6 +153,11 @@ public class PullDownListViewFragment extends BaseFragment implements
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

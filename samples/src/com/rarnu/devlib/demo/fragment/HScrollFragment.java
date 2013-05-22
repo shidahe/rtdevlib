@@ -38,7 +38,7 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		barPoint = (PointBar) innerView.findViewById(R.id.barPoint);
 		evpPoint = (PointBar) innerView.findViewById(R.id.evpPoint);
 		hsl = (HScrollLayout) innerView.findViewById(R.id.hsl);
@@ -73,13 +73,13 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 		hsl.setOnScreenChangeListener(this);
 		evp.setOnPageSelected(this);
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		barPoint.setPointCount(3);
 		barPoint.setPoint(0);
 		
@@ -88,22 +88,22 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_hscroll;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
@@ -121,6 +121,11 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

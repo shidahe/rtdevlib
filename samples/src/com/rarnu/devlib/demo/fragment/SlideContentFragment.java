@@ -25,34 +25,34 @@ public class SlideContentFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		tvText = (TextView) innerView.findViewById(R.id.tvText);
 
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_slide_content;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 		itemBack = menu.add(0, 1, 99, "Back");
 		itemBack.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		itemBack.setIcon(android.R.drawable.ic_menu_revert);
@@ -69,13 +69,18 @@ public class SlideContentFragment extends BaseFragment {
 	}
 	
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 		tvText.setText(bn.getString("text"));
 
 	}
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 

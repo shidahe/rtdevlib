@@ -24,43 +24,48 @@ public class NetworkFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initComponents() {
+	public void initComponents() {
 		tvNetwork = (TextView) innerView.findViewById(R.id.tvNetwork);
 
 	}
 
 	@Override
-	protected void initEvents() {
+	public void initEvents() {
 
 	}
 
 	@Override
-	protected void initLogic() {
+	public void initLogic() {
 		tvNetwork.setText(NetworkUtils.getNetworkStatusString(getActivity()));
 	}
 
 	@Override
-	protected int getFragmentLayoutResId() {
+	public int getFragmentLayoutResId() {
 		return R.layout.fragment_network;
 	}
 
 	@Override
-	protected String getMainActivityName() {
+	public String getMainActivityName() {
 		return MainActivity.class.getName();
 	}
 
 	@Override
-	protected void initMenu(Menu menu) {
+	public void initMenu(Menu menu) {
 
 	}
 
 	@Override
-	protected void onGetNewArguments(Bundle bn) {
+	public void onGetNewArguments(Bundle bn) {
 
 	}
 
 	@Override
 	public String getCustomTitle() {
+		return null;
+	}
+
+	@Override
+	public Bundle getFragmentState() {
 		return null;
 	}
 
