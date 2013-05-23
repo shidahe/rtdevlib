@@ -12,7 +12,7 @@ import android.view.Menu;
 
 import com.anjuke.devlib.base.BaseFragment;
 import com.anjuke.devlib.component.PullDownListView;
-import com.anjuke.devlib.component.event.OnPullDownListener;
+import com.anjuke.devlib.component.intf.OnPullDownListener;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
 import com.rarnu.devlib.demo.adapter.StringAdapter;

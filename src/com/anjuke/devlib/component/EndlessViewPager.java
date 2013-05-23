@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.anjuke.devlib.component.event.OnPageSelected;
+import com.anjuke.devlib.component.intf.OnPageSelected;
 
 public class EndlessViewPager extends ViewPager {
 

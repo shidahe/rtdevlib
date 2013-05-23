@@ -20,8 +20,8 @@ import android.widget.TextView;
 
 import com.anjuke.devlib.R;
 import com.anjuke.devlib.common.Actions;
-import com.anjuke.devlib.component.event.OnPullDownListener;
-import com.anjuke.devlib.component.event.OnScrollOverListener;
+import com.anjuke.devlib.component.intf.OnPullDownListener;
+import com.anjuke.devlib.component.intf.OnScrollOverListener;
 
 public class PullDownListView extends LinearLayout implements OnScrollOverListener {
 

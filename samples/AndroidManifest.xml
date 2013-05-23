@@ -109,6 +109,14 @@
             android:name=".fragment.activity.TabActivity"
             android:label="@string/tab_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.DragListViewActivity"
+            android:label="@string/drag_listview_name" >
+        </activity>
+        <activity
+            android:name=".fragment.activity.WaterfallActivity"
+            android:label="@string/waterfall_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>

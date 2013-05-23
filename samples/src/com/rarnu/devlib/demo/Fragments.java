@@ -5,6 +5,7 @@ import com.rarnu.devlib.demo.fragment.ArgumentFragment;
 import com.rarnu.devlib.demo.fragment.DeviceFragment;
 import com.rarnu.devlib.demo.fragment.DialogFragment;
 import com.rarnu.devlib.demo.fragment.DownloadFragment;
+import com.rarnu.devlib.demo.fragment.DragListViewFragment;
 import com.rarnu.devlib.demo.fragment.FileFragment;
 import com.rarnu.devlib.demo.fragment.FloatWindowFragment;
 import com.rarnu.devlib.demo.fragment.HScrollFragment;
@@ -23,6 +24,7 @@ import com.rarnu.devlib.demo.fragment.SlideSecondMenuFragment;
 import com.rarnu.devlib.demo.fragment.TabFragment;
 import com.rarnu.devlib.demo.fragment.UIFragment;
 import com.rarnu.devlib.demo.fragment.VScrollFragment;
+import com.rarnu.devlib.demo.fragment.WaterfallFragment;
 
 public class Fragments {
 
@@ -49,6 +51,8 @@ public class Fragments {
 	public static SlideSecondMenuFragment fSlideSecondMenu = null;
 	public static FloatWindowFragment fFloatWindow = null;
 	public static TabFragment fTab = null;
+	public static DragListViewFragment fDragListView = null;
+	public static WaterfallFragment fWaterfall = null;
 
 	public static void loadFragments() {
 		fIndex = new IndexFragment();
@@ -74,6 +78,8 @@ public class Fragments {
 		fSlideSecondMenu = new SlideSecondMenuFragment();
 		fFloatWindow = new FloatWindowFragment();
 		fTab = new TabFragment();
+		fDragListView = new DragListViewFragment();
+		fWaterfall = new WaterfallFragment();
 	}
 
 	public static void releaseFragments() {
@@ -100,5 +106,7 @@ public class Fragments {
 		fSlideSecondMenu = null;
 		fFloatWindow = null;
 		fTab = null;
+		fDragListView = null;
+		fWaterfall = null;
 	}
 }

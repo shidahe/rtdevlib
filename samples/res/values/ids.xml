@@ -12,6 +12,8 @@
     <string name="id_item_3_2">VScrollLayout</string>
     <string name="id_item_3_3">PullDownLayout</string>
     <string name="id_item_3_4">PullDownListView</string>
+    <string name="id_item_3_4_1">DragListView</string>
+    <string name="id_item_3_4_2">WaterfallView</string>
     <string name="id_item_3_5">SlideMenu</string>
     <string name="id_item_3_6">FloatWindow</string>
     <string name="id_item_3_7">Tab</string>

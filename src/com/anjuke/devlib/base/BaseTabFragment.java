@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 import com.anjuke.devlib.R;
+import com.anjuke.devlib.base.adapter.BaseFragmentAdapter;
 import com.anjuke.devlib.base.inner.InnerFragment;
 
 public abstract class BaseTabFragment extends InnerFragment implements

@@ -70,6 +70,10 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fFloatWindow;
 		case 17:
 			return Fragments.fTab;
+		case 18:
+			return Fragments.fDragListView;
+		case 19:
+			return Fragments.fWaterfall;
 		}
 		return Fragments.fDetail;
 	}

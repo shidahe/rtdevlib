@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.anjuke.devlib.base.BaseAdapter;
+import com.anjuke.devlib.base.adapter.BaseAdapter;
 import com.rarnu.devlib.demo.R;
 
 public class StringAdapter extends BaseAdapter<String> {

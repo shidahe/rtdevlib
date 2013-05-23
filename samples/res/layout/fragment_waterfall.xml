@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.anjuke.devlib.component.WaterfallView
+        xmlns:wfv="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/wvWater"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        wfv:plaColumnNumber="3"
+        wfv:plaLandscapeColumnNumber="3" />
+
+</RelativeLayout>

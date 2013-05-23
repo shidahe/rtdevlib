@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 
 import com.anjuke.devlib.R;
-import com.anjuke.devlib.component.event.OnScreenChangeListener;
-import com.anjuke.devlib.component.event.OnScreenTouchListener;
+import com.anjuke.devlib.component.intf.OnScreenChangeListener;
+import com.anjuke.devlib.component.intf.OnScreenTouchListener;
 
 public class HScrollLayout extends ViewGroup {
 

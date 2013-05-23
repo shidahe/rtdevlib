@@ -14,8 +14,8 @@ import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.common.IFragments;
 import com.anjuke.devlib.common.ISliding;
 import com.anjuke.devlib.component.SlidingMenu;
+import com.anjuke.devlib.component.tools.SlidingHelper;
 import com.anjuke.devlib.utils.DrawableUtils;
-import com.anjuke.devlib.utils.SlidingHelper;
 import com.anjuke.devlib.utils.UIUtils;
 
 public abstract class BaseSlidingActivity extends InnerActivity implements

@@ -10,7 +10,7 @@ import com.anjuke.devlib.base.BasePreferenceFragment;
 import com.anjuke.devlib.common.FragmentStarter;
 import com.anjuke.devlib.common.GlobalInstance;
 import com.anjuke.devlib.component.MutaxReceiver;
-import com.anjuke.devlib.component.event.OnReceiveMessage;
+import com.anjuke.devlib.component.intf.OnReceiveMessage;
 import com.rarnu.devlib.demo.Fragments;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
@@ -19,6 +19,7 @@ import com.rarnu.devlib.demo.fragment.activity.ArgumentActivity;
 import com.rarnu.devlib.demo.fragment.activity.DeviceActivity;
 import com.rarnu.devlib.demo.fragment.activity.DialogActivity;
 import com.rarnu.devlib.demo.fragment.activity.DownloadActivity;
+import com.rarnu.devlib.demo.fragment.activity.DragListViewActivity;
 import com.rarnu.devlib.demo.fragment.activity.FileActivity;
 import com.rarnu.devlib.demo.fragment.activity.FloatWindowActivity;
 import com.rarnu.devlib.demo.fragment.activity.HScrollActivity;
@@ -34,6 +35,7 @@ import com.rarnu.devlib.demo.fragment.activity.SlideActivity;
 import com.rarnu.devlib.demo.fragment.activity.TabActivity;
 import com.rarnu.devlib.demo.fragment.activity.UIActivity;
 import com.rarnu.devlib.demo.fragment.activity.VScrollActivity;
+import com.rarnu.devlib.demo.fragment.activity.WaterfallActivity;
 import com.rarnu.devlib.demo.service.DemoService;
 
 public class IndexFragment extends BasePreferenceFragment implements
@@ -44,6 +46,8 @@ public class IndexFragment extends BasePreferenceFragment implements
 	Preference p3_1, p3_2, p3_3, p3_4, p3_5, p3_6, p3_7;
 	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8;
 	Preference p5_1;
+
+	Preference p3_4_1, p3_4_2;
 
 	MutaxReceiver mutax;
 
@@ -90,6 +94,9 @@ public class IndexFragment extends BasePreferenceFragment implements
 
 		p5_1 = (Preference) findPreference(getString(R.string.id_item_5_1));
 
+		p3_4_1 = (Preference) findPreference(getString(R.string.id_item_3_4_1));
+		p3_4_2 = (Preference) findPreference(getString(R.string.id_item_3_4_2));
+
 	}
 
 	@Override
@@ -124,6 +131,9 @@ public class IndexFragment extends BasePreferenceFragment implements
 		p4_8.setOnPreferenceClickListener(this);
 
 		p5_1.setOnPreferenceClickListener(this);
+
+		p3_4_1.setOnPreferenceClickListener(this);
+		p3_4_2.setOnPreferenceClickListener(this);
 	}
 
 	@Override
@@ -236,6 +246,14 @@ public class IndexFragment extends BasePreferenceFragment implements
 			GlobalInstance.currentFragment = 15;
 			FragmentStarter.showContent(getActivity(), RunActivity.class,
 					Fragments.fRun);
+		} else if (key.equals(getString(R.string.id_item_3_4_1))) {
+			GlobalInstance.currentFragment = 18;
+			FragmentStarter.showContent(getActivity(),
+					DragListViewActivity.class, Fragments.fDragListView);
+		} else if (key.equals(getString(R.string.id_item_3_4_2))) {
+			GlobalInstance.currentFragment = 19;
+			FragmentStarter.showContent(getActivity(), WaterfallActivity.class,
+					Fragments.fWaterfall);
 		}
 		return true;
 	}

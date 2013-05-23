@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListView;
 
-import com.anjuke.devlib.component.event.OnScrollOverListener;
+import com.anjuke.devlib.component.intf.OnScrollOverListener;
 
 public class ScrollOverListView extends ListView {
 
