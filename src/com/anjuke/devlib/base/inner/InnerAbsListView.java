@@ -12,7 +12,6 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Debug;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -101,8 +100,6 @@ public abstract class InnerAbsListView extends InnerAdapterView<ListAdapter>
 	final boolean[] mIsScrap = new boolean[1];
 	private int mActivePointerId = INVALID_POINTER;
 	private static final int INVALID_POINTER = -1;
-	protected static final boolean DEBUG = false;
-	private static final String TAG = "PLA_AbsListView";
 
 	public interface OnScrollListener {
 		public static int SCROLL_STATE_IDLE = 0;
@@ -644,8 +641,6 @@ public abstract class InnerAbsListView extends InnerAdapterView<ListAdapter>
 	@Override
 	public void onWindowFocusChanged(boolean hasWindowFocus) {
 		super.onWindowFocusChanged(hasWindowFocus);
-		if (DEBUG)
-			Log.d(TAG, "onWindowFocusChanged");
 
 		final int touchMode = isInTouchMode() ? TOUCH_MODE_ON : TOUCH_MODE_OFF;
 
@@ -1215,10 +1210,6 @@ public abstract class InnerAbsListView extends InnerAdapterView<ListAdapter>
 			mScroller.fling(0, initialY, 0, initialVelocity, 0,
 					Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
 
-			if (DEBUG)
-				Log.d(TAG, String.format("String Fling: [%d, %d] to [%d]",
-						initialY, initialVelocity, mScroller.getFinalY()));
-
 			mTouchMode = TOUCH_MODE_FLING;
 			post(this);
 
@@ -1718,8 +1709,7 @@ public abstract class InnerAbsListView extends InnerAdapterView<ListAdapter>
 	}
 
 	protected void tryOffsetChildrenTopAndBottom(int offset) {
-		if (DEBUG)
-			Log.v(TAG, "tryOffsetChilderenTopAndBottom: " + offset);
+
 		final int count = getChildCount();
 
 		for (int i = 0; i < count; i++) {

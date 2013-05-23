@@ -17,7 +17,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.ImageView;
 
 public class ImageLoader {
@@ -137,7 +136,6 @@ public class ImageLoader {
 				if (imageViewReused(photoToLoad)) {
 					return;
 				}
-				Log.e("getBitmap", photoToLoad.url);
 				Bitmap bmp = getBitmap(photoToLoad.url);
 				memoryCache.put(photoToLoad.url, bmp);
 				if (imageViewReused(photoToLoad)) {
@@ -146,7 +144,6 @@ public class ImageLoader {
 				BitmapDisplayer bd = new BitmapDisplayer(bmp, photoToLoad);
 				handler.post(bd);
 			} catch (Throwable th) {
-				Log.e("PhotosLoader", th.getMessage());
 			}
 		}
 	}

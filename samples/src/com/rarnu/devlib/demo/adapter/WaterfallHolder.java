@@ -1,7 +1,7 @@
 package com.rarnu.devlib.demo.adapter;
 
-import com.anjuke.devlib.component.ScaleImageView;
+import android.widget.ImageView;
 
 public class WaterfallHolder {
-	public ScaleImageView ivDemo;
+	public ImageView ivDemo;
 }

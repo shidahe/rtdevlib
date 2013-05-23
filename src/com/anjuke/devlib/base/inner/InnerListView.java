@@ -11,7 +11,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.MotionEvent;
 import android.view.View;
@@ -622,9 +621,6 @@ public class InnerListView extends InnerAbsListView {
 	}
 
 	private View fillSpecific(int position, int top) {
-
-		if (DEBUG)
-			Log.d("PLA_ListView", "FillSpecific: " + position + ":" + top);
 
 		View temp = makeAndAddView(position, top, true, false);
 
@@ -1495,9 +1491,6 @@ public class InnerListView extends InnerAbsListView {
 	protected void onFocusChanged(boolean gainFocus, int direction,
 			Rect previouslyFocusedRect) {
 		super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-
-		if (DEBUG)
-			Log.v("PLA_ListView", "onFocusChanged");
 
 		int closetChildIndex = -1;
 		if (gainFocus && previouslyFocusedRect != null) {

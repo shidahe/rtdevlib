@@ -1,11 +1,16 @@
 package com.rarnu.devlib.demo.fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.Menu;
 
 import com.anjuke.devlib.base.BaseFragment;
+import com.anjuke.devlib.component.WaterfallView;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
+import com.rarnu.devlib.demo.adapter.WaterfallAdapter;
 
 public class WaterfallFragment extends BaseFragment {
 
@@ -36,6 +41,10 @@ public class WaterfallFragment extends BaseFragment {
 			"http://farm8.staticflickr.com/7243/7193236466_33a37765a4.jpg",
 			"http://farm8.staticflickr.com/7251/7059629417_e0e96a4c46.jpg",
 			"http://farm8.staticflickr.com/7084/6885444694_6272874cfc.jpg" };
+	
+	WaterfallView wvWater;
+	WaterfallAdapter adapter;
+	List<String> list;
 
 	@Override
 	public int getBarTitle() {
@@ -54,7 +63,13 @@ public class WaterfallFragment extends BaseFragment {
 
 	@Override
 	public void initComponents() {
-
+		list = new ArrayList<String>();
+		for (String u: urls) {
+			list.add(u);
+		}
+		adapter = new WaterfallAdapter(getActivity(), list);
+		wvWater = (WaterfallView) innerView.findViewById(R.id.wvWater);
+		wvWater.setAdapter(adapter);
 	}
 
 	@Override
