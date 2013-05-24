@@ -117,6 +117,10 @@
             android:name=".fragment.activity.WaterfallActivity"
             android:label="@string/waterfall_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.FlipViewActivity"
+            android:label="@string/flipview_name" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>

@@ -7,6 +7,7 @@ import com.rarnu.devlib.demo.fragment.DialogFragment;
 import com.rarnu.devlib.demo.fragment.DownloadFragment;
 import com.rarnu.devlib.demo.fragment.DragListViewFragment;
 import com.rarnu.devlib.demo.fragment.FileFragment;
+import com.rarnu.devlib.demo.fragment.FlipViewFragment;
 import com.rarnu.devlib.demo.fragment.FloatWindowFragment;
 import com.rarnu.devlib.demo.fragment.HScrollFragment;
 import com.rarnu.devlib.demo.fragment.HttpRequestFragment;
@@ -53,6 +54,7 @@ public class Fragments {
 	public static TabFragment fTab = null;
 	public static DragListViewFragment fDragListView = null;
 	public static WaterfallFragment fWaterfall = null;
+	public static FlipViewFragment fFlipView = null;
 
 	public static void loadFragments() {
 		fIndex = new IndexFragment();
@@ -80,6 +82,7 @@ public class Fragments {
 		fTab = new TabFragment();
 		fDragListView = new DragListViewFragment();
 		fWaterfall = new WaterfallFragment();
+		fFlipView = new FlipViewFragment();
 	}
 
 	public static void releaseFragments() {
@@ -108,5 +111,6 @@ public class Fragments {
 		fTab = null;
 		fDragListView = null;
 		fWaterfall = null;
+		fFlipView = null;
 	}
 }

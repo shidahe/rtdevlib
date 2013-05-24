@@ -74,6 +74,8 @@ public class MainActivity extends BaseMainActivity {
 			return Fragments.fDragListView;
 		case 19:
 			return Fragments.fWaterfall;
+		case 20:
+			return Fragments.fFlipView;
 		}
 		return Fragments.fDetail;
 	}

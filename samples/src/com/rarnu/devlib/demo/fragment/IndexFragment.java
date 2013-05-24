@@ -21,6 +21,7 @@ import com.rarnu.devlib.demo.fragment.activity.DialogActivity;
 import com.rarnu.devlib.demo.fragment.activity.DownloadActivity;
 import com.rarnu.devlib.demo.fragment.activity.DragListViewActivity;
 import com.rarnu.devlib.demo.fragment.activity.FileActivity;
+import com.rarnu.devlib.demo.fragment.activity.FlipViewActivity;
 import com.rarnu.devlib.demo.fragment.activity.FloatWindowActivity;
 import com.rarnu.devlib.demo.fragment.activity.HScrollActivity;
 import com.rarnu.devlib.demo.fragment.activity.HttpRequestActivity;
@@ -47,7 +48,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 	Preference p4_1, p4_2, p4_3, p4_4, p4_5, p4_6, p4_7, p4_8;
 	Preference p5_1;
 
-	Preference p3_4_1, p3_4_2;
+	Preference p3_4_1, p3_4_2, p3_4_3;
 
 	MutaxReceiver mutax;
 
@@ -96,6 +97,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 
 		p3_4_1 = (Preference) findPreference(getString(R.string.id_item_3_4_1));
 		p3_4_2 = (Preference) findPreference(getString(R.string.id_item_3_4_2));
+		p3_4_3 = (Preference) findPreference(getString(R.string.id_item_3_4_3));
 
 	}
 
@@ -134,6 +136,7 @@ public class IndexFragment extends BasePreferenceFragment implements
 
 		p3_4_1.setOnPreferenceClickListener(this);
 		p3_4_2.setOnPreferenceClickListener(this);
+		p3_4_3.setOnPreferenceClickListener(this);
 	}
 
 	@Override
@@ -254,6 +257,10 @@ public class IndexFragment extends BasePreferenceFragment implements
 			GlobalInstance.currentFragment = 19;
 			FragmentStarter.showContent(getActivity(), WaterfallActivity.class,
 					Fragments.fWaterfall);
+		} else if (key.equals(getString(R.string.id_item_3_4_3))) {
+			GlobalInstance.currentFragment = 20;
+			FragmentStarter.showContent(getActivity(), FlipViewActivity.class,
+					Fragments.fFlipView);
 		}
 		return true;
 	}
