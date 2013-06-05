@@ -6,6 +6,7 @@ import com.rarnu.devlib.demo.fragment.DeviceFragment;
 import com.rarnu.devlib.demo.fragment.DialogFragment;
 import com.rarnu.devlib.demo.fragment.DownloadFragment;
 import com.rarnu.devlib.demo.fragment.DragListViewFragment;
+import com.rarnu.devlib.demo.fragment.DynamicMetroFragment;
 import com.rarnu.devlib.demo.fragment.FileFragment;
 import com.rarnu.devlib.demo.fragment.FlipViewFragment;
 import com.rarnu.devlib.demo.fragment.FloatWindowFragment;
@@ -55,6 +56,7 @@ public class Fragments {
 	public static DragListViewFragment fDragListView = null;
 	public static WaterfallFragment fWaterfall = null;
 	public static FlipViewFragment fFlipView = null;
+	public static DynamicMetroFragment fDynamicMetro = null;
 
 	public static void loadFragments() {
 		fIndex = new IndexFragment();
@@ -83,6 +85,7 @@ public class Fragments {
 		fDragListView = new DragListViewFragment();
 		fWaterfall = new WaterfallFragment();
 		fFlipView = new FlipViewFragment();
+		fDynamicMetro = new DynamicMetroFragment();
 	}
 
 	public static void releaseFragments() {
@@ -112,5 +115,6 @@ public class Fragments {
 		fDragListView = null;
 		fWaterfall = null;
 		fFlipView = null;
+		fDynamicMetro = null;
 	}
 }

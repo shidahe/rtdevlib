@@ -121,6 +121,12 @@
             android:name=".fragment.activity.FlipViewActivity"
             android:label="@string/flipview_name" >
         </activity>
+        <activity
+            android:name=".fragment.activity.DynamicMetroActivity"
+            android:label="@string/dynamic_metro_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
+        </activity>
 
         <service android:name=".service.DemoService" >
         </service>

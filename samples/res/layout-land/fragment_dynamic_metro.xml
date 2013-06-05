@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.anjuke.devlib.component.HScrollLayout
+        android:id="@+id/slMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.anjuke.devlib.component.MergeView
+            android:id="@+id/mvPage1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.anjuke.devlib.component.MergeView
+            android:id="@+id/mvPage2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.anjuke.devlib.component.MergeView
+            android:id="@+id/mvPage3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.anjuke.devlib.component.HScrollLayout>
+
+</RelativeLayout>
