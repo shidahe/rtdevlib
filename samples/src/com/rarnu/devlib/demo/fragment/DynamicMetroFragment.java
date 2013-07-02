@@ -141,8 +141,8 @@ public class DynamicMetroFragment extends BaseFragment implements
 	}
 
 	@Override
-	public void onItemClick(int index) {
-		Toast.makeText(getActivity(), String.valueOf(index), Toast.LENGTH_SHORT)
+	public void onItemClick(int id, String data) {
+		Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT)
 				.show();
 
 	}

@@ -33,8 +33,8 @@ public class MergePage {
 	/**
 	 * the format of json string is:<br>
 	 * {"count":5,data:[<br>
-	 * &nbsp;&nbsp;&nbsp;&nbsp;{"id":1,"below":1,"right":1,"xsize":1,"ysize":1,"index":1,
-	 * "extra":"data"},<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;{"id":1,"below":1,"right":1,"xsize":1,"ysize":1,
+	 * "index":1, "extra":"data"},<br>
 	 * &nbsp;&nbsp;&nbsp;&nbsp;... <br>
 	 * ]}
 	 */
@@ -81,6 +81,7 @@ public class MergePage {
 			v[i].index = pageIndex[i];
 			v[i].xsize = pageX[i];
 			v[i].ysize = pageY[i];
+			v[i].extraData = pageData[i];
 			v[i].setFocusCallback(callback);
 			parseExtra(v[i], keys, ids, pageData[i], option);
 		}
