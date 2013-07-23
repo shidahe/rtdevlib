@@ -1,14 +1,19 @@
 package com.anjuke.devlib.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -19,12 +24,25 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
 
+import android.util.Log;
+
+import com.anjuke.devlib.classes.HttpRequestResponseData;
+import com.anjuke.devlib.utils.http.FilePart;
+import com.anjuke.devlib.utils.http.MultipartEntity;
+import com.anjuke.devlib.utils.http.Part;
+import com.anjuke.devlib.utils.http.StringPart;
+
 public class HttpRequest {
 
-	public static String simplePost(String host, String param, String encoding)
-			throws Exception {
+	public static String simplePostWithHeader(String host, String param,
+			String encoding, Map<String, String> property) throws Exception {
 		URL url = new URL(host);
 		URLConnection conn = url.openConnection();
+		Iterator<Entry<String, String>> iter = property.entrySet().iterator();
+		while (iter.hasNext()) {
+			Map.Entry<String, String> entry = iter.next();
+			conn.addRequestProperty(entry.getKey(), entry.getValue());
+		}
 		conn.setDoOutput(true);
 		OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
 		osw.write(param);
@@ -34,13 +52,18 @@ public class HttpRequest {
 				encoding);
 		BufferedReader br = new BufferedReader(isr);
 		String content = null;
-		String result = null;
+		String result = "";
 		while ((content = br.readLine()) != null) {
 			result += content + "\n";
 		}
 		br.close();
 		isr.close();
 		return result;
+	}
+
+	public static String simplePost(String host, String param, String encoding)
+			throws Exception {
+		return simplePostWithHeader(host, param, encoding, null);
 	}
 
 	public static String post(String host, String getParams,
@@ -52,7 +75,6 @@ public class HttpRequest {
 	public static String post(String host, List<BasicNameValuePair> params,
 			String encoding) {
 		HttpPost httpPost = new HttpPost(host);
-
 		try {
 			UrlEncodedFormEntity p_entity = new UrlEncodedFormEntity(params,
 					encoding);
@@ -60,14 +82,66 @@ public class HttpRequest {
 		} catch (UnsupportedEncodingException e) {
 
 		}
-
 		return executeForResult(httpPost, encoding);
+	}
 
+	public static String postFile(String host, List<BasicNameValuePair> params,
+			List<String> files, String encoding) {
+		HttpPost httpPost = buildPostFileParts(host, params, files, encoding);
+		return executeForResult(httpPost, encoding);
+	}
+
+	public static HttpRequestResponseData postWithHeader(String host,
+			List<BasicNameValuePair> params, CookieStore cookie, String encoding) {
+		HttpPost httpPost = new HttpPost(host);
+		try {
+			UrlEncodedFormEntity p_entity = new UrlEncodedFormEntity(params,
+					encoding);
+			httpPost.setEntity(p_entity);
+		} catch (UnsupportedEncodingException e) {
+
+		}
+		return executeForData(httpPost, cookie, encoding);
+	}
+
+	public static HttpRequestResponseData postFileWithHeader(String host,
+			List<BasicNameValuePair> params, List<String> files,
+			CookieStore cookie, String encoding) {
+		HttpPost httpPost = buildPostFileParts(host, params, files, encoding);
+		return executeForData(httpPost, cookie, encoding);
+	}
+
+	private static HttpPost buildPostFileParts(String host,
+			List<BasicNameValuePair> params, List<String> files, String encoding) {
+		HttpPost httpPost = new HttpPost(host);
+		try {
+			Part[] p = new Part[params.size() + files.size()];
+			for (int i = 0; i < params.size(); i++) {
+				p[i] = new StringPart(params.get(i).getName(), params.get(i)
+						.getValue(), encoding);
+			}
+			int idx = params.size();
+			for (int i = idx; i < p.length; i++) {
+				p[i] = new FilePart("file", new File(files.get(i - idx)),
+						"*/*", encoding);
+			}
+			MultipartEntity multipart = new MultipartEntity(p);
+			httpPost.setEntity(multipart);
+		} catch (Exception e) {
+
+		}
+		return httpPost;
 	}
 
 	public static String get(String host, String params, String encoding) {
 		HttpGet request = new HttpGet(host + "?" + params);
 		return executeForResult(request, encoding);
+	}
+
+	public static HttpRequestResponseData getWithData(String host,
+			String params, CookieStore cookie, String encoding) {
+		HttpGet request = new HttpGet(host + "?" + params);
+		return executeForData(request, cookie, encoding);
 	}
 
 	private static BasicHttpParams buildHttpParams() {
@@ -89,8 +163,32 @@ public class HttpRequest {
 			}
 			return result;
 		} catch (Exception e) {
+			Log.e("executeForResult", e.getMessage());
 			return "";
 		}
+	}
+
+	private static HttpRequestResponseData executeForData(
+			HttpRequestBase request, CookieStore cookie, String encoding) {
+		HttpRequestResponseData data = null;
+		try {
+			DefaultHttpClient client = new DefaultHttpClient(buildHttpParams());
+			if (cookie != null) {
+				client.setCookieStore(cookie);
+			}
+			HttpResponse response = client.execute(request);
+			int statusCode = response.getStatusLine().getStatusCode();
+			if (statusCode == 200) {
+				data = new HttpRequestResponseData();
+				data.data = EntityUtils
+						.toString(response.getEntity(), encoding);
+				data.cookie = client.getCookieStore();
+			}
+		} catch (Exception e) {
+			Log.e("executeForResult", e.getMessage());
+
+		}
+		return data;
 	}
 
 }
