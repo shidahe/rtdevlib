@@ -19,12 +19,13 @@ import com.anjuke.devlib.utils.UIUtils;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
 
-public class HScrollFragment extends BaseFragment implements OnScreenChangeListener, OnPageSelected {
+public class HScrollFragment extends BaseFragment implements
+		OnScreenChangeListener, OnPageSelected {
 
 	PointBar barPoint, evpPoint;
 	HScrollLayout hsl;
 	EndlessViewPager evp;
-	
+
 	List<View> views;
 
 	@Override
@@ -43,21 +44,23 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 		evpPoint = (PointBar) innerView.findViewById(R.id.evpPoint);
 		hsl = (HScrollLayout) innerView.findViewById(R.id.hsl);
 		evp = (EndlessViewPager) innerView.findViewById(R.id.evp);
-		
-		int height = UIUtils.getHeight() - getActivity().getActionBar().getHeight() - UIUtils.getStatusbarHeight(getActivity());
+
+		int height = UIUtils.getHeight()
+				- getActivity().getActionBar().getHeight()
+				- UIUtils.getStatusbarHeight(getActivity());
 		height /= 2;
 		ViewGroup.LayoutParams hsllp = hsl.getLayoutParams();
 		hsllp.height = height;
 		hsl.setLayoutParams(hsllp);
-		
+
 		ViewGroup.LayoutParams evplp = evp.getLayoutParams();
 		evplp.height = height;
 		evp.setLayoutParams(evplp);
-		
+
 		initViewPager();
-		
+
 	}
-	
+
 	private void initViewPager() {
 		evp.setEndless(true);
 		views = new ArrayList<View>();
@@ -82,7 +85,7 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	public void initLogic() {
 		barPoint.setPointCount(3);
 		barPoint.setPoint(0);
-		
+
 		evpPoint.setPointCount(3);
 		evpPoint.setPoint(0);
 	}
@@ -110,13 +113,13 @@ public class HScrollFragment extends BaseFragment implements OnScreenChangeListe
 	@Override
 	public void onScreenChange(View v, int screen) {
 		barPoint.setPoint(screen);
-		
+
 	}
 
 	@Override
 	public void onPageSelected(int position) {
 		evpPoint.setPoint(position);
-		
+
 	}
 
 	@Override

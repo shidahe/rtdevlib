@@ -22,6 +22,7 @@
     <string name="id_item_4_1">Device</string>
     <string name="id_item_4_2">Download</string>
     <string name="id_item_4_3">File</string>
+    <string name="id_item_4_3_1">Json</string>
     <string name="id_item_4_4">HttpRequest</string>
     <string name="id_item_4_5">Image</string>
     <string name="id_item_4_6">Network</string>

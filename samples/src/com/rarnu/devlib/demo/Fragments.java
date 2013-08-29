@@ -14,6 +14,7 @@ import com.rarnu.devlib.demo.fragment.HScrollFragment;
 import com.rarnu.devlib.demo.fragment.HttpRequestFragment;
 import com.rarnu.devlib.demo.fragment.ImageFragment;
 import com.rarnu.devlib.demo.fragment.IndexFragment;
+import com.rarnu.devlib.demo.fragment.JsonFragment;
 import com.rarnu.devlib.demo.fragment.NetworkFragment;
 import com.rarnu.devlib.demo.fragment.NotificationFragment;
 import com.rarnu.devlib.demo.fragment.PopupFragment;
@@ -57,6 +58,7 @@ public class Fragments {
 	public static WaterfallFragment fWaterfall = null;
 	public static FlipViewFragment fFlipView = null;
 	public static DynamicMetroFragment fDynamicMetro = null;
+	public static JsonFragment fJson = null;
 
 	public static void loadFragments() {
 		fIndex = new IndexFragment();
@@ -86,6 +88,7 @@ public class Fragments {
 		fWaterfall = new WaterfallFragment();
 		fFlipView = new FlipViewFragment();
 		fDynamicMetro = new DynamicMetroFragment();
+		fJson = new JsonFragment();
 	}
 
 	public static void releaseFragments() {
@@ -116,5 +119,6 @@ public class Fragments {
 		fWaterfall = null;
 		fFlipView = null;
 		fDynamicMetro = null;
+		fJson = null;
 	}
 }

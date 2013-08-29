@@ -10,9 +10,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,20 +37,13 @@ public class FileUtils {
 		return ret;
 	}
 
-	public static void createFile(String path, String text) throws IOException {
-		File myFile = new File(path);
-		if (!myFile.exists()) {
-			myFile.createNewFile();
-		}
-		if (!text.equals("")) {
-			rewriteFile(myFile, text);
-		}
+	public static void rewriteFile(File file, String text, String encoding)
+			throws IOException {
+		writeFileByStream(file, text, false, encoding);
 	}
 
 	public static void rewriteFile(File file, String text) throws IOException {
-		FileWriter myFileWriter = new FileWriter(file);
-		myFileWriter.write(text);
-		myFileWriter.close();
+		writeFileByWriter(file, text, false);
 	}
 
 	public static void rewriteFile(String path, String text) throws IOException {
@@ -56,15 +51,49 @@ public class FileUtils {
 		rewriteFile(myFile, text);
 	}
 
+	public static void rewriteFile(String path, String text, String encoding)
+			throws IOException {
+		File myFile = new File(path);
+		rewriteFile(myFile, text, encoding);
+	}
+
 	public static void appendFile(File file, String text) throws IOException {
-		FileWriter myFileWriter = new FileWriter(file);
-		myFileWriter.append(text);
+		writeFileByWriter(file, text, true);
+	}
+
+	public static void appendFile(File file, String text, String encoding)
+			throws IOException {
+		writeFileByStream(file, text, true, encoding);
+	}
+
+	private static void writeFileByWriter(File file, String text, boolean append)
+			throws IOException {
+		FileWriter myFileWriter = new FileWriter(file, append);
+		if (append) {
+			myFileWriter.append(text);
+		} else {
+			myFileWriter.write(text);
+		}
 		myFileWriter.close();
+	}
+	
+	private static void writeFileByStream(File file, String text, boolean append, String encoding) throws IOException {
+		FileOutputStream fos = new FileOutputStream(file, append);
+		OutputStreamWriter myWriter = new OutputStreamWriter(fos, encoding);
+		myWriter.write(text);
+		myWriter.close();
+		fos.close();
 	}
 
 	public static void appendFile(String path, String text) throws IOException {
 		File myFile = new File(path);
 		appendFile(myFile, text);
+	}
+
+	public static void appendFile(String path, String text, String encoding)
+			throws IOException {
+		File myFile = new File(path);
+		appendFile(myFile, text, encoding);
 	}
 
 	public static boolean deleteFile(String path) {
@@ -235,6 +264,21 @@ public class FileUtils {
 		return text.trim();
 	}
 
+	public static List<String> readAssertFileAsList(Context context,
+			String fileName) throws IOException {
+		InputStream is = context.getAssets().open(fileName);
+		InputStreamReader myStreamReader = new InputStreamReader(is);
+		BufferedReader myBufferedReader = new BufferedReader(myStreamReader);
+		String line;
+		List<String> fileText = new ArrayList<String>();
+		while ((line = myBufferedReader.readLine()) != null) {
+			fileText.add(line);
+		}
+		myBufferedReader.close();
+		myStreamReader.close();
+		return fileText;
+	}
+
 	public static boolean copyAssetFile(Context context, String fileName,
 			String saveDir, Handler hProgress) {
 		File fBusybox = new File(saveDir);
@@ -291,9 +335,24 @@ public class FileUtils {
 		}
 	}
 
-	public static String readFile(Context context, String path)
+	public static String readInnerFile(Context context, String path)
 			throws IOException {
 		InputStream is = context.openFileInput(path);
+		return readFileStream(is);
+	}
+
+	public static String readFileString(String path) throws IOException {
+		InputStream is = new FileInputStream(path);
+		return readFileStream(is);
+	}
+
+	public static String readFileString(String path, String encoding)
+			throws IOException {
+		String ret = readFileString(path);
+		return new String(ret.getBytes(), encoding);
+	}
+
+	private static String readFileStream(InputStream is) throws IOException {
 		byte[] bytes = new byte[1024];
 		ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
 		while (is.read(bytes) != -1) {
@@ -329,7 +388,7 @@ public class FileUtils {
 
 		}
 	}
-	
+
 	public static long getDirSize(String path) {
 		return getDirSize(new File(path));
 	}

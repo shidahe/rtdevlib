@@ -72,6 +72,9 @@
             android:key="@string/id_item_4_3"
             android:title="@string/item_4_3" />
         <Preference
+            android:key="@string/id_item_4_3_1"
+            android:title="@string/item_4_3_1" />
+        <Preference
             android:key="@string/id_item_4_4"
             android:title="@string/item_4_4" />
         <Preference

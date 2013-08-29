@@ -44,6 +44,8 @@
     <string name="flipview_name">FlipViewFragment</string>
     <string name="flipview_name_with_path">MainActivity &gt; FlipViewFragment</string>
     <string name="dynamic_metro_name">DynamicMetroFragment</string>
+    <string name="json_name">JsonFragment</string>
+    <string name="json_name_with_path">MainActivity &gt; JsonFragment</string>
     
     <string name="test_cat_1">Fragment</string>
     <string name="test_cat_2">Base.Impl</string>
@@ -75,6 +77,7 @@
     <string name="item_4_1">Device</string>
     <string name="item_4_2">Download</string>
     <string name="item_4_3">File</string>
+    <string name="item_4_3_1">Json</string>
     <string name="item_4_4">HttpRequest</string>
     <string name="item_4_5">Image</string>
     <string name="item_4_6">Network</string>
