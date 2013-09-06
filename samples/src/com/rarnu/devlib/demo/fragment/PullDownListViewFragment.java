@@ -25,7 +25,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 	StringAdapter adapter;
 	List<String> list;
 	StringLoader loader;
-	
+
 	private Handler hRefresh = new Handler() {
 
 		@Override
@@ -45,6 +45,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 				break;
 			}
 			}
+			lvPullDown.getListView().setSelected(false);
 
 		}
 
@@ -69,6 +70,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 		loader = new StringLoader(getActivity());
 		lvPullDown.enableAutoFetchMore(true, 1);
 		lvPullDown.setOnPullDownListener(this);
+		lvPullDown.getListView().setFocusableInTouchMode(false);
 	}
 
 	@Override
@@ -110,7 +112,6 @@ public class PullDownListViewFragment extends BaseFragment implements
 			list.addAll(data);
 		}
 		adapter.setNewList(list);
-
 	}
 
 	@Override
@@ -129,7 +130,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 				hRefresh.sendMessage(msg);
 			}
 		}).start();
-		
+
 	}
 
 	@Override
@@ -148,7 +149,7 @@ public class PullDownListViewFragment extends BaseFragment implements
 				hRefresh.sendMessage(msg);
 			}
 		}).start();
-		
+
 	}
 
 	@Override
