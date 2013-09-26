@@ -54,8 +54,8 @@ public class RunFragment extends BaseFragment implements OnClickListener, Return
 
 	@Override
 	public void initLogic() {
-		session.write("su\r");
-		session.write("getevent\r");
+//		session.write("su\r");
+//		session.write("getevent\r");
 	}
 
 	@Override

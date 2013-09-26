@@ -37,54 +37,54 @@ public class MainActivity extends BaseMainActivity {
 	public Fragment getFragment(int currentFragment) {
 		switch (currentFragment) {
 		case 1:
-			return Fragments.fDetail;
+			return Fragments.getFragment(FragmentNameConsts.FN_DETAIL);
 		case 2:
-			return Fragments.fAdapter;
+			return Fragments.getFragment(FragmentNameConsts.FN_ADAPTER);
 		case 3:
-			return Fragments.fHScroll;
+			return Fragments.getFragment(FragmentNameConsts.FN_HSCROLL);
 		case 4:
-			return Fragments.fVScroll;
+			return Fragments.getFragment(FragmentNameConsts.FN_VSCROLL);
 		case 5:
-			return Fragments.fPullDownLayout;
+			return Fragments.getFragment(FragmentNameConsts.FN_PULLDOWN_LAYOUT);
 		case 6:
-			return Fragments.fPullDownListView;
+			return Fragments.getFragment(FragmentNameConsts.FN_PULLDOWN_LISTVIEW);
 		case 7:
-			return Fragments.fDevice;
+			return Fragments.getFragment(FragmentNameConsts.FN_DEVICE);
 		case 8:
-			return Fragments.fDownload;
+			return Fragments.getFragment(FragmentNameConsts.FN_DOWNLOAD);
 		case 9:
-			return Fragments.fFile;
+			return Fragments.getFragment(FragmentNameConsts.FN_FILE);
 		case 10:
-			return Fragments.fHttpRequest;
+			return Fragments.getFragment(FragmentNameConsts.FN_HTTP_REQUEST);
 		case 11:
-			return Fragments.fImage;
+			return Fragments.getFragment(FragmentNameConsts.FN_IMAGE);
 		case 12:
-			return Fragments.fNetwork;
+			return Fragments.getFragment(FragmentNameConsts.FN_NETWORK);
 		case 13:
-			return Fragments.fNotification;
+			return Fragments.getFragment(FragmentNameConsts.FN_NOTIFICATION);
 		case 14:
-			return Fragments.fUI;
+			return Fragments.getFragment(FragmentNameConsts.FN_UI);
 		case 15:
-			return Fragments.fRun;
+			return Fragments.getFragment(FragmentNameConsts.FN_RUN);
 		case 16:
-			return Fragments.fFloatWindow;
+			return Fragments.getFragment(FragmentNameConsts.FN_FLOAT_WINDOW);
 		case 17:
-			return Fragments.fTab;
+			return Fragments.getFragment(FragmentNameConsts.FN_TAB);
 		case 18:
-			return Fragments.fDragListView;
+			return Fragments.getFragment(FragmentNameConsts.FN_DRAG_LISTVIEW);
 		case 19:
-			return Fragments.fWaterfall;
+			return Fragments.getFragment(FragmentNameConsts.FN_WATERFALL);
 		case 20:
-			return Fragments.fFlipView;
+			return Fragments.getFragment(FragmentNameConsts.FN_FLIPVIEW);
 		case 21:
-			return Fragments.fJson;
+			return Fragments.getFragment(FragmentNameConsts.FN_JSON);
 		}
-		return Fragments.fDetail;
+		return Fragments.getFragment(FragmentNameConsts.FN_DETAIL);
 	}
 
 	@Override
 	public Fragment getIndexFragment() {
-		return Fragments.fIndex;
+		return Fragments.getFragment(FragmentNameConsts.FN_INDEX);
 	}
 
 	@Override
@@ -119,7 +119,6 @@ public class MainActivity extends BaseMainActivity {
 
 	@Override
 	public void loadFragments() {
-		Fragments.loadFragments();
 
 	}
 

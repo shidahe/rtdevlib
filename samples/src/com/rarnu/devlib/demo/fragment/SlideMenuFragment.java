@@ -5,7 +5,9 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.view.Menu;
 
+import com.anjuke.devlib.base.BaseFragment;
 import com.anjuke.devlib.base.BasePreferenceFragment;
+import com.rarnu.devlib.demo.FragmentNameConsts;
 import com.rarnu.devlib.demo.Fragments;
 import com.rarnu.devlib.demo.MainActivity;
 import com.rarnu.devlib.demo.R;
@@ -62,7 +64,7 @@ public class SlideMenuFragment extends BasePreferenceFragment implements
 		String text = preference.getTitle().toString();
 		Bundle bn = new Bundle();
 		bn.putString("text", text);
-		Fragments.fSlideContent.setNewArguments(bn);
+        ((BaseFragment)Fragments.getFragment(FragmentNameConsts.FN_SLIDE_CONTENT)).setNewArguments(bn);
 		((SlideActivity) getActivity()).getSlidingMenu().toggle();
 		return true;
 	}
