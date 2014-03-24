@@ -19,4 +19,9 @@ public class FloatWindowActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_FLOAT_WINDOW);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

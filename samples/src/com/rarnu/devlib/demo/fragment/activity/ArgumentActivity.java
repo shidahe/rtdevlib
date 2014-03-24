@@ -13,8 +13,13 @@ public class ArgumentActivity extends BaseActivity {
 	public Fragment replaceFragment() {
 		return Fragments.getFragment(FragmentNameConsts.FN_DETAIL);
 	}
-	
-	@Override
+
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
 	public int getIcon() {
 		return R.drawable.ic_launcher;
 	}

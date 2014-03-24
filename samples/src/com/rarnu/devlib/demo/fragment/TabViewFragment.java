@@ -16,8 +16,8 @@ public class TabViewFragment extends BaseFragment {
 		super();
 	}
 	
-	public TabViewFragment(String tagText, String tabTitle) {
-		super(tagText, tabTitle);
+	public TabViewFragment(String tabTitle) {
+		super(tabTitle);
 	}
 	
 	@Override
@@ -33,7 +33,7 @@ public class TabViewFragment extends BaseFragment {
 	@Override
 	public void initComponents() {
 		tvText = (TextView) innerView.findViewById(R.id.tvText);
-		tvText.setText(getTagText());
+		tvText.setText(getTabTitle());
 	}
 
 	@Override

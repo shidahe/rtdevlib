@@ -45,7 +45,7 @@ public class TabFragment extends BaseTabFragment {
 		case 1:
 			Random r = new Random(System.currentTimeMillis());
 			String tag = String.valueOf(r.nextInt());
-			addTab(-1, new TabViewFragment(tag, tag));
+			addTab(-1, new TabViewFragment(tag));
 			break;
 		case 2:
 			int position = getCurrentPage();
@@ -62,11 +62,11 @@ public class TabFragment extends BaseTabFragment {
 
 	@Override
 	public void initFragmentList(List<Fragment> listFragment) {
-		listFragment.add(new TabViewFragment("Fragment 1", "Tab 1"));
-		listFragment.add(new TabViewFragment("Fragment 2", "Tab 2"));
-		listFragment.add(new TabViewFragment("Fragment 3", "Tab 3"));
-		listFragment.add(new TabViewFragment("Fragment 4", "Tab 4"));
-		listFragment.add(new TabViewFragment("Fragment 5", "Tab 5"));
+		listFragment.add(new TabViewFragment("Tab 1"));
+		listFragment.add(new TabViewFragment("Tab 2"));
+		listFragment.add(new TabViewFragment("Tab 3"));
+		listFragment.add(new TabViewFragment("Tab 4"));
+		listFragment.add(new TabViewFragment("Tab 5"));
 		
 	}
 

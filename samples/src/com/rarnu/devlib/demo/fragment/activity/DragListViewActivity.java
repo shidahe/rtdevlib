@@ -18,4 +18,9 @@ public class DragListViewActivity extends BaseActivity {
         return Fragments.getFragment(FragmentNameConsts.FN_DRAG_LISTVIEW);
     }
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

@@ -14,7 +14,12 @@ public class DeviceActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_DEVICE);
 	}
 
-	@Override
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
 	public int getIcon() {
 		return R.drawable.ic_launcher;
 	}

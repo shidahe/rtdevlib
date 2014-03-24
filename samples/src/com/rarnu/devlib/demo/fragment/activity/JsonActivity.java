@@ -19,4 +19,9 @@ public class JsonActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_JSON);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

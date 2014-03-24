@@ -2,105 +2,92 @@ package com.anjuke.devlib.base.inner;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.provider.Settings;
+import android.view.*;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-
 import com.anjuke.devlib.base.intf.InnerIntf;
 import com.anjuke.devlib.common.GlobalInstance;
 
-public abstract class InnerFragment extends Fragment implements
-		OnGlobalLayoutListener, InnerIntf {
+public abstract class InnerFragment extends Fragment implements OnGlobalLayoutListener, InnerIntf {
 
-	protected View innerView = null;
-	protected Bundle innerBundle = null;
+    protected View innerView = null;
+    protected Bundle innerBundle = null;
+    protected String tabTitle;
 
-	protected String tagText;
-	protected String tabTitle;
+    public InnerFragment() {
+        super();
+    }
 
-	@Override
-	public String getTagText() {
-		return tagText;
-	}
+    public InnerFragment(String tabTitle) {
+        super();
+        this.tabTitle = tabTitle;
+    }
 
-	public String getTabTitle() {
-		return tabTitle;
-	}
+    public String getTabTitle() {
+        return tabTitle;
+    }
 
-	public InnerFragment() {
-		super();
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        innerView = inflater.inflate(getFragmentLayoutResId(), container, false);
+        initComponents();
+        initEvents();
+        innerView.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        return innerView;
+    }
 
-	public InnerFragment(String tagText, String tabTitle) {
-		super();
-		this.tagText = tagText;
-		this.tabTitle = tabTitle;
-	}
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        innerBundle = getArguments();
+        initLogic();
+        if (getActivity().getActionBar() != null) {
+            if (getCustomTitle() == null || getCustomTitle().equals("")) {
+                if (GlobalInstance.dualPane) {
+                    if (getBarTitleWithPath() != 0) {
+                        getActivity().getActionBar().setTitle(getBarTitleWithPath());
+                    }
+                } else {
+                    if (getBarTitle() != 0) {
+                        getActivity().getActionBar().setTitle(getBarTitle());
+                    }
+                }
+            } else {
+                getActivity().getActionBar().setTitle(getCustomTitle());
+            }
+        }
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		innerView = inflater
-				.inflate(getFragmentLayoutResId(), container, false);
-		initComponents();
-		initEvents();
-		innerView.getViewTreeObserver().addOnGlobalLayoutListener(this);
-		return innerView;
-	}
+    public void setNewArguments(Bundle bn) {
+        innerBundle = getArguments();
+        onGetNewArguments(bn);
+    }
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		innerBundle = getArguments();
-		initLogic();
-		if (getActivity().getActionBar() != null) {
-			if (getCustomTitle() == null || getCustomTitle().equals("")) {
-				if (GlobalInstance.dualPane) {
-					getActivity().getActionBar()
-							.setTitle(getBarTitleWithPath());
-				} else {
-					getActivity().getActionBar().setTitle(getBarTitle());
-				}
-			} else {
-				getActivity().getActionBar().setTitle(getCustomTitle());
-			}
-		}
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
-	public void setNewArguments(Bundle bn) {
-		innerBundle = getArguments();
-		onGetNewArguments(bn);
-	}
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (getActivity() == null) {
+            return;
+        }
+        if (getActivity().getClass().getName().equals(getMainActivityName()) && !GlobalInstance.dualPane) {
+            return;
+        }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
-	}
+        initMenu(menu);
+    }
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		if (getActivity() == null) {
-			return;
-		}
-		if (getActivity().getClass().getName().equals(getMainActivityName())
-				&& !GlobalInstance.dualPane) {
-			return;
-		}
+    @Override
+    public void onGlobalLayout() {
+        onLayoutReady();
+    }
 
-		initMenu(menu);
-	}
+    protected void onLayoutReady() {
 
-	@Override
-	public void onGlobalLayout() {
-		onLayoutReady();
-	}
-
-	protected void onLayoutReady() {
-
-	}
+    }
 
 }

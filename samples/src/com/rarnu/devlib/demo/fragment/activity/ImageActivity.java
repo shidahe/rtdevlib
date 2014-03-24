@@ -13,8 +13,13 @@ public class ImageActivity extends BaseActivity {
 	public Fragment replaceFragment() {
 		return Fragments.getFragment(FragmentNameConsts.FN_IMAGE);
 	}
-	
-	@Override
+
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
 	public int getIcon() {
 		return R.drawable.ic_launcher;
 	}

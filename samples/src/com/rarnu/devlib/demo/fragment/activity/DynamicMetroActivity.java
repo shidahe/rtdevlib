@@ -24,4 +24,9 @@ public class DynamicMetroActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_DYNAMIC_METRO);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

@@ -19,4 +19,9 @@ public class FlipViewActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_FLIPVIEW);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

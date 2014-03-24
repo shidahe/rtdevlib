@@ -19,4 +19,9 @@ public class TabActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_TAB);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

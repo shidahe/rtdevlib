@@ -20,6 +20,11 @@ public class SlideActivity extends BaseSlidingActivity {
     }
 
     @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
     public Fragment replaceMenuFragment() {
         return Fragments.getFragment(FragmentNameConsts.FN_SLIDE_MENU);
     }

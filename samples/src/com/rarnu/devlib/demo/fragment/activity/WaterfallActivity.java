@@ -19,4 +19,9 @@ public class WaterfallActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_WATERFALL);
 	}
 
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
 }

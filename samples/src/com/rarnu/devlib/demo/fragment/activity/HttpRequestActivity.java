@@ -14,7 +14,12 @@ public class HttpRequestActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_HTTP_REQUEST);
 	}
 
-	@Override
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
 	public int getIcon() {
 		return R.drawable.ic_launcher;
 	}

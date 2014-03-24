@@ -11,14 +11,8 @@ import com.anjuke.devlib.common.GlobalInstance;
 public abstract class InnerPreferenceFragment extends PreferenceFragment
 		implements InnerIntf {
 
-	protected String tagText;
 	protected String tabTitle;
 	protected Bundle innerBundle = null;
-
-	@Override
-	public String getTagText() {
-		return tagText;
-	}
 
 	public String getTabTitle() {
 		return tabTitle;
@@ -28,9 +22,8 @@ public abstract class InnerPreferenceFragment extends PreferenceFragment
 		super();
 	}
 
-	public InnerPreferenceFragment(String tagText, String tabTitle) {
+	public InnerPreferenceFragment(String tabTitle) {
 		super();
-		this.tagText = tagText;
 		this.tabTitle = tabTitle;
 	}
 

@@ -14,6 +14,11 @@ public class PopupActivity extends BasePopupActivity {
     }
 
     @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
     public int getIcon() {
         return R.drawable.ic_launcher;
     }

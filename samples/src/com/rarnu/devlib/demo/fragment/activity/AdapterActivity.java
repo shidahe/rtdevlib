@@ -14,7 +14,12 @@ public class AdapterActivity extends BaseActivity {
 		return Fragments.getFragment(FragmentNameConsts.FN_ADAPTER);
 	}
 
-	@Override
+    @Override
+    public int customTheme() {
+        return 0;
+    }
+
+    @Override
 	public int getIcon() {
 		return R.drawable.ic_launcher;
 	}
